@@ -5,17 +5,10 @@ import DashPage, {} from "./dash-page"
 import AddPage, {} from "./add-page"
 import EditPage, {} from "./edit-page"
 import Header, {} from "./header"
+import StoreApp, {} from "./storeApp"
+import ConnectedDashList, {} from "./connected-dash-page"
+import ConnectedStoreApp, {} from "./connected-storeApp"
 
-
-
-const homePage = () => {
-      return (
-        <div>
-             Hello from HomePage
-        </div>
-
-      );
-}
 
 
 
@@ -36,9 +29,10 @@ const AppRouter = () => (
     <div>
           <Header />
           <Switch>
-              <Route path = "/" component = {homePage} exact={true}/>
+              <Route path = "/" component = {ConnectedStoreApp} exact={true}/>
+              <Route path = "/store" component = {ConnectedStoreApp} />
               <Route path = "/add" component = {AddPage} />
-              <Route path = "/dash" component = {DashPage} />
+              <Route path = "/dash" component = {ConnectedDashList} />
               <Route path = "/edit/:id" component = {EditPage} />
               <Route component = {notFoundPage} />
           </Switch>
@@ -47,3 +41,6 @@ const AppRouter = () => (
 );
 
 export default AppRouter;
+
+
+//Route exact path="/dash" render={(props) => DashPage {...props} /}

@@ -1,6 +1,7 @@
 import React, {} from "react";
 import ReactDOM, {} from "react-dom";
-//import {store} from "../st_store"
+import {connect} from "react-redux";
+
 
 
 const ExpenseLine = (props) => {

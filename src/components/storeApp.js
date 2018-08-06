@@ -1,12 +1,16 @@
 import React, {} from "react";
 import ReactDOM, {} from "react-dom";
-import {createStore, combineReducers} from "redux";
-import DashPage, {} from "../components/dash-page"
-import {addExpense, deleteExpense} from "./actions.js"
-import {expensesReducer, filtersReducer} from "./reducers.js"
+import {connect} from "react-redux";
+//import {createStore, combineReducers} from "redux";
+//import DashPage, {} from "./dash-page"
+import {addExpense, deleteExpense} from "../redux/actions.js"
+import {expensesReducer, filtersReducer} from "../redux/reducers.js"
+import {store} from "../app.js"
+import ConnectedDashList, {} from "./connected-dash-page.js"
 import "../styles/style.scss";
 
 
+import "../styles/style.scss";
 
 const activities = [
 "Coffee",
@@ -21,30 +25,20 @@ const activities = [
 ]
 
 
-export const store = createStore(
-      combineReducers ({
-          expenses: expensesReducer,
-          filters: filtersReducer
-      })
-
-);
-
-
-// store.subscribe(() => {
-//       console.log(JSON.stringify(store.getState().expenses,null,4));
-//
-// });
 
 
 
 //utlity becuase react not re-rendering
 const just1Render = () => {
-          ReactDOM.render(<App />, document.getElementById("root"));
+          ReactDOM.render(<StoreApp />, document.getElementById("root"));
+          //console.log({ store.getState().expenses) })
 
 }
 
 
 const BuyButton = (props) => {
+
+
 
         const addOne = () => {
             store.dispatch(
@@ -113,24 +107,27 @@ const DeleteButtons = (props) => {
 //HOC
 const doAuthenticaton = (WrappedComponent) => {
     //here is where we return the HOC = a new stateless functional component
-      return (props) => (
+    //implicitly return some JSX
+      return (props) => {
 
-        <div>
+          return (
+                  <div>
+                              {props.isAuthenticated ? (
+                                      <div className="authenticated">
+                                            Thanks for Logging in {props.userName}, enabling Delete buttons.
+                                            <WrappedComponent {...props} />
+                                      </div>
+                                    ) : (
+                                      <div className="not-authenticated">
+                                            Please login {props.userName} to enable Delete buttons.
+                                      </div>
 
-                    {props.isAuthenticated ? (
-                            <div className="authenticated">
-                                  Thanks for Logging in, enabling Delete buttons.
-                                  <WrappedComponent />
-                            </div>
-                          ) : (
-                            <div className="not-authenticated">
-                                  Please login to enable Delete buttons.
-                            </div>
-                          )
-                  }
-        </div>
-      )
 
+                                    )
+                            }
+                  </div>
+          ) //end HOC being returned
+   }
 }
 
 const AuthDeleteButtons = doAuthenticaton(DeleteButtons);
@@ -138,13 +135,13 @@ const AuthDeleteButtons = doAuthenticaton(DeleteButtons);
 
 
 
-
-class App extends React.Component {
+class StoreApp extends React.Component {
 
   constructor (props) {
     super(props)
     this.state = {
-          isAuthenticated: false
+          isAuthenticated: true,
+          userName: "Paul"
       }
   } // constructor
 
@@ -156,8 +153,7 @@ class App extends React.Component {
                 <br /><br />
                 <BuyButton />
                 <br/>
-                <AuthDeleteButtons isAuthenticated = {this.state.isAuthenticated}/>
-                <DashPage expenses={store.getState().expenses} />
+                <AuthDeleteButtons isAuthenticated = {this.state.isAuthenticated} userName = {this.state.userName}/>
                 <br/>
             </div>
 
@@ -166,7 +162,8 @@ class App extends React.Component {
 
 } //class
 
+export default StoreApp
 
-//The State is { JSON.stringify(store.getState().expenses) }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+
+ReactDOM.render(<StoreApp />, document.getElementById("root"));
