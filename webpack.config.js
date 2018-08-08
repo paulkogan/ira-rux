@@ -35,7 +35,7 @@ module.exports = {
 
 
     ]
-  }, //better dubugging
+  }, //better dubugging - line attribution baxck to code
     devtool: "cheap-module-eval-source-map",
     devServer: {
       contentBase:  path.join(__dirname, 'public'),

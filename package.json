@@ -4,8 +4,8 @@
   "description": "Indecision",
   "main": "bundle.js",
   "scripts": {
-    "live-server-XXX": "live-server ./public",
-    "babel-XXX": "babel ./src/indec_game.js --out-file ./public/runapp.js --presets=env,react --watch",
+    "live-server-NO-WEBPACK": "live-server ./public",
+    "babel-NO-WEBPACK": "babel ./src/indec_game.js --out-file ./public/runapp.js --presets=env,react --watch",
     "webpack": "webpack --watch",
     "dev-server": "webpack-dev-server",
     "start": "run-p dev-server"

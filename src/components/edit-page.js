@@ -7,7 +7,7 @@ const EditPage = (props) => {
 
       return (
                 <div>
-                     I can see you editing Expense no. {props.match.params.id}
+                     Here is details on Iten no. {props.match.params.id}
                 </div>
       )
 

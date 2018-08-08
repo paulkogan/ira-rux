@@ -3,13 +3,13 @@ import ReactDOM, {} from "react-dom";
 import {connect} from "react-redux";
 import {addExpense, deleteExpense} from "../redux/actions.js"
 import {expensesReducer, filtersReducer} from "../redux/reducers.js"
-import ConnectedExpenseLine, {} from "./connected-expense-line.js"
+import ItemLine, {} from "./item-line.js"
 
 
 
 
 //regular unconnected component
-const DashList = (props) => {
+const ItemList = (props) => {
 
         const expensesTotal = props.expenses.reduce((a, b) => {
               return {amount: a.amount + b.amount}
@@ -19,9 +19,9 @@ const DashList = (props) => {
 
         console.log(expensesTotal.amount);
 
-        const DashListOfLines = props.expenses.map( (expense) => {
+        const LinesList = props.expenses.map( (expense) => {
                         return (
-                              <ConnectedExpenseLine expense={expense} key={expense.id}/>
+                              <ItemLine expense={expense} key={expense.id}/>
 
                         );
         });
@@ -30,11 +30,11 @@ const DashList = (props) => {
           return (
                           <div className = "div-border">
                                       <div className="exp-total">
-                                      Showing <font color="white">{props.expenses.length} expenses </font>
+                                      Showing <font color="white">{props.expenses.length} items </font>
                                       for a total of <font color="white"> ${expensesTotal.amount.toFixed(2)}</font>
                                       <br/>
                                       </div>
-                                      {DashListOfLines}
+                                      {LinesList}
                           </div>
 
           );
@@ -64,12 +64,4 @@ const mapStateToProps = (state) => {
 //NOW Dashlist has accessto State as Props
 
 //export the connected version
-export default connect(mapStateToProps)(DashList);
-
-
-
-
-// <ExpenseLine
-//       key={expense.id}
-//       expense = {expense}
-// />
+export default connect(mapStateToProps)(ItemList);

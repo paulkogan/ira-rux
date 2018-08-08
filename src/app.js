@@ -1,8 +1,6 @@
 import React, {} from "react";
 import ReactDOM, {} from "react-dom";
 import AppRouter, {} from "./components/appRouter"
-import DashPage, {} from "./components/dash-page"
-import ConnectedDashList, {} from "./components/connected-dash-page"
 
 
 import {Provider} from "react-redux";
@@ -20,7 +18,6 @@ export const store = createStore(
           filters: filtersReducer
       }),
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-
 );
 
 

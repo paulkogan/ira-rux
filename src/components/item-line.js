@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {addExpense, deleteExpense} from "../redux/actions.js"
 import {expensesReducer, filtersReducer} from "../redux/reducers.js"
 
-const ConnectedExpenseLine = (props) => {
+const ItemLine = (props) => {
 
 
         const localDeleteExpense = (expense) => {
@@ -40,30 +40,5 @@ const ConnectedExpenseLine = (props) => {
 
 
 
-
-//this is the HOC - expenses being enhanced
-// const mapStateToProps = (state) => {
-//      // we return an OBJECT, notbJSX, with key-value pair
-//          return {
-//               expenses: state.expenses
-//          };
-// }
-
-
-
-//you create  function, intio which you then need to call/pass the non-connected component
-//passing it dash-list
-//as arg, we pass in a function describing the data we want
-//the Wrapped component will have access the data as props
-//NOW Dashlist has accessto State as Props
-
-//export the connected version
-export default connect()(ConnectedExpenseLine);
-
-
-
-
-// <ExpenseLine
-//       key={expense.id}
-//       expense = {expense}
-// />
+//just need access to actions to delete
+export default connect()(ItemLine);

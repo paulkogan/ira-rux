@@ -1,14 +1,10 @@
 import React, {} from "react";
 //import ReactDOM, {} from "react-dom";
 import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
-
-import EditPage, {} from "./edit-page"
 import Header, {} from "./header"
-import StoreApp, {} from "./storeApp"
-import ConnectedDashList, {} from "./connected-dash-page"
-import ConnectedStoreApp, {} from "./connected-storeApp"
-import ConnectedAddPage, {} from "./connected-add-page"
-
+import AddPage, {} from "./add-page.js"
+import ListPage, {} from "./list-page"
+import EditPage, {} from "./edit-page"
 
 
 
@@ -23,16 +19,14 @@ const notFoundPage = () => {
 }
 
 
-
 const AppRouter = () => (
   <BrowserRouter>
     <div>
           <Header />
           <Switch>
-              <Route path = "/" component = {ConnectedStoreApp} exact={true}/>
-              <Route path = "/store" component = {ConnectedStoreApp} />
-              <Route path = "/add" component = {ConnectedAddPage} />
-              <Route path = "/dash" component = {ConnectedDashList} />
+              <Route path = "/" component = {ListPage} exact={true}/>
+              <Route path = "/list" component = {ListPage} />
+              <Route path = "/add" component = {AddPage} />
               <Route path = "/edit/:id" component = {EditPage} />
               <Route component = {notFoundPage} />
           </Switch>
@@ -41,6 +35,3 @@ const AppRouter = () => (
 );
 
 export default AppRouter;
-
-
-//Route exact path="/dash" render={(props) => DashPage {...props} /}

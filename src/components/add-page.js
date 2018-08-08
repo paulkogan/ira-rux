@@ -3,15 +3,12 @@ import ReactDOM, {} from "react-dom";
 import {connect} from "react-redux";
 import {addExpense, deleteExpense} from "../redux/actions.js"
 import {expensesReducer, filtersReducer} from "../redux/reducers.js"
-import ConnectedDashList, {} from "./connected-dash-page.js"
+import ItemList, {} from "./list-page.js"
 import moment from 'moment';
-//import {SingleDatePicker} from 'react-dates'
-//import 'react-dates/lib/css/_datepicker.css'
 
 
 
-
-class ConnectedAddPage extends React.Component {
+class AddPage extends React.Component {
 
       constructor (props) {
         super(props)
@@ -27,7 +24,7 @@ class ConnectedAddPage extends React.Component {
         }
 
 
-
+      //save all page-changes to state, then display from state
       onDescriptionChange = (e) => {
            const description = e.target.value
            this.setState(  () => ({description})  ) ;
@@ -144,16 +141,13 @@ class ConnectedAddPage extends React.Component {
 
                     </form>
                     <br />
-                    <ConnectedDashList />
+                    <ItemList />
                 </div>
 
               );
 
       } //render
 }//class
-
-
-
 
 
 
@@ -166,5 +160,5 @@ const mapStateToProps = (state) => {
 }
 
 //becuase we dont need to access store data, can connect without passing in MapStatetoProps
-
-export default connect()(ConnectedAddPage)
+//we are just submitting to teh store
+export default connect()(AddPage)
