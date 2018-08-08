@@ -9,7 +9,7 @@ import {Provider} from "react-redux";
 import {createStore, combineReducers} from "redux";
 import {addExpense, deleteExpense} from "./redux/actions.js"
 import {expensesReducer, filtersReducer} from "./redux/reducers.js"
-
+import moment from 'moment';
 import "normalize.css/normalize.css"; //all browsers look the same
 import "./styles/style.scss";
 
@@ -18,7 +18,8 @@ export const store = createStore(
       combineReducers ({
           expenses: expensesReducer,
           filters: filtersReducer
-      })
+      }),
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 );
 
@@ -37,24 +38,32 @@ const withStore = (
   </Provider>
 )
 
+//gettoday's date
+const now = moment()
+
 store.dispatch(
       addExpense({
-        amount: 10+Math.floor(Math.random()*90),
-        description: "Cofeee"
+        amount: (1000+Math.floor(Math.random()*9000))/100,
+        description: "Cofeee",
+        createdAt: now.format('MMM Do, YYYY')
       })
 );
 
 store.dispatch(
       addExpense({
-        amount: 10+Math.floor(Math.random()*90),
-        description: "Sandwitch"
+        amount: (1000+Math.floor(Math.random()*9000))/100,
+        description: "Sandwitch",
+        note: "Fresh bread makes all the diff!",
+        createdAt: now.format('MMM Do, YYYY')
       })
 );
 
 store.dispatch(
       addExpense({
-        amount: 10+Math.floor(Math.random()*90),
-        description: "A good book"
+        amount: (1000+Math.floor(Math.random()*9000))/100,
+        description: "A good book",
+        note: "Read Phillip Roth!",
+        createdAt: now.format('MMM Do, YYYY')
       })
 );
 

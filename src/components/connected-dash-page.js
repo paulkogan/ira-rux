@@ -1,46 +1,53 @@
 import React, {} from "react";
 import ReactDOM, {} from "react-dom";
 import {connect} from "react-redux";
+import {addExpense, deleteExpense} from "../redux/actions.js"
+import {expensesReducer, filtersReducer} from "../redux/reducers.js"
+import ConnectedExpenseLine, {} from "./connected-expense-line.js"
 
 
 
-const ExpenseLine = ( {description, amount, id}) => {
-          return (
-              <div>        <table border = "0" width="100%">
-                              <tbody>
-                               <tr width ="100%">
-                                  <td width="5%"> &nbsp;</td>
-                                   <td align = "left" width="20%">{description} </td>
-                                   <td align = "center"  width="20%"> $ {amount}.00</td>
-                                  <td width="30%"> {id}</td>
-                                  <td width="25%"> &nbsp;</td>
-                                </tr>
-                              </tbody>
-                            </table>
-              </div>
-
-          )
-}
 
 //regular unconnected component
 const DashList = (props) => {
 
-      const DashListOfLines = props.expenses.map( (expense) => {
-                return (
-                      <ExpenseLine {...expense} key={expense.id} />
+        const expensesTotal = props.expenses.reduce((a, b) => {
+              return {amount: a.amount + b.amount}
+        });
 
 
-                );
-      });
-            return (
-                <div>
-                            {DashListOfLines}
-                </div>
 
-              );
+        console.log(expensesTotal.amount);
+
+        const DashListOfLines = props.expenses.map( (expense) => {
+                        return (
+                              <ConnectedExpenseLine expense={expense} key={expense.id}/>
+
+                        );
+        });
+
+
+          return (
+                          <div className = "div-border">
+                                      <div className="exp-total">
+                                      Showing <font color="white">{props.expenses.length} expenses </font>
+                                      for a total of <font color="white"> ${expensesTotal.amount.toFixed(2)}</font>
+                                      <br/>
+                                      </div>
+                                      {DashListOfLines}
+                          </div>
+
+          );
+
+
+
+
 } //stateless functional component
 
-//this is the HOC
+
+
+
+//this is the HOC - expenses being enhanced
 const mapStateToProps = (state) => {
      // we return an OBJECT, notbJSX, with key-value pair
          return {

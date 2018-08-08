@@ -17,13 +17,17 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-replace-object-assign": "^1.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
     "live-server": "^1.2.0",
+    "moment": "^2.22.2",
     "node-sass": "^4.9.2",
     "normalize.css": "^8.0.0",
     "react": "^16.4.1",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dates": "^17.1.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
@@ -36,7 +40,9 @@
     "webpack-dev-server": "^3.1.5"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^0.5.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-airbnb": "^2.5.3",
     "webpack-command": "^0.4.1"
   }
 }

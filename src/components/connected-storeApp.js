@@ -84,6 +84,7 @@ class ConnectedStoreApp extends React.Component {
                 <ConnectedBuyButton />
                 <br/>
                 <AuthDeleteButtons isAuthenticated = {this.state.isAuthenticated} userName = {this.state.userName}/>
+                <br />
                 <ConnectedDashList />
 
 

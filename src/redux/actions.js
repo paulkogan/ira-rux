@@ -7,7 +7,8 @@ export const addExpense = (newExpense) => {
           const  {
               amount =0,
               description = "",
-              createdAt = 0
+              createdAt = 0,
+              note=""
             } = newExpense;
 
     //explicitly return this object
@@ -17,6 +18,7 @@ export const addExpense = (newExpense) => {
                 id: uuid(),
                 amount,
                 description,
+                note,
                 createdAt
               }
           }  //return object
