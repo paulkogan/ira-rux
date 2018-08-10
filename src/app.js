@@ -26,7 +26,6 @@ store.subscribe(() => {
 
 });
 
-console.log("in APP.JS");
 
 //this is a JSX variable
 const withStore = (
@@ -36,33 +35,33 @@ const withStore = (
 )
 
 //gettoday's date
-const now = moment()
+//const now = moment()
 
-store.dispatch(
-      addExpense({
-        amount: (1000+Math.floor(Math.random()*9000))/100,
-        description: "Cofeee",
-        createdAt: now.format('MMM Do, YYYY')
-      })
-);
-
-store.dispatch(
-      addExpense({
-        amount: (1000+Math.floor(Math.random()*9000))/100,
-        description: "Sandwitch",
-        note: "Fresh bread makes all the diff!",
-        createdAt: now.format('MMM Do, YYYY')
-      })
-);
-
-store.dispatch(
-      addExpense({
-        amount: (1000+Math.floor(Math.random()*9000))/100,
-        description: "A good book",
-        note: "Read Phillip Roth!",
-        createdAt: now.format('MMM Do, YYYY')
-      })
-);
+// store.dispatch(
+//       addExpense({
+//         amount: (1000+Math.floor(Math.random()*9000))/100,
+//         description: "Cofeee",
+//         createdAt: now.format('MMM Do, YYYY')
+//       })
+// );
+//
+// store.dispatch(
+//       addExpense({
+//         amount: (1000+Math.floor(Math.random()*9000))/100,
+//         description: "Sandwitch",
+//         note: "Fresh bread makes all the diff!",
+//         createdAt: now.format('MMM Do, YYYY')
+//       })
+// );
+//
+// store.dispatch(
+//       addExpense({
+//         amount: (1000+Math.floor(Math.random()*9000))/100,
+//         description: "A good book",
+//         note: "Read Phillip Roth!",
+//         createdAt: now.format('MMM Do, YYYY')
+//       })
+// );
 
 //export default store;
 

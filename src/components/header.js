@@ -5,16 +5,14 @@ import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 
 const Header = () => (
         <header >
-            <h1>React Store with Router and Redux </h1>
-            <p>v.9 </p>
-            <NavLink to="/list" className="head-links" activeClassName="is-active"> List Items </NavLink>
-              <br />
-            <NavLink to="/add" className="head-links" activeClassName="is-active"> Add New </NavLink>
-             <br />
-            <NavLink to="/edit/768" className = "head-links" activeClassName="is-active"> View Item </NavLink>
-             <br />
-             <br />
+        <h1>IRA Responsive UX</h1>
+         v.202
+            <NavLink to="/" className="head-links" activeClassName="is-active"> Home </NavLink>
+            <NavLink to="/transactions" className="head-links" activeClassName="is-active"> Transactions </NavLink>
+            <br />
+            <br />
        </header>
+
 )
 
 export default Header;

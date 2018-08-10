@@ -2,10 +2,10 @@ import React, {} from "react";
 //import ReactDOM, {} from "react-dom";
 import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 import Header, {} from "./header"
+import HomePage, {} from "./home-page.js"
 import AddPage, {} from "./add-page.js"
 import ListPage, {} from "./list-page"
-import EditPage, {} from "./edit-page"
-
+import TransSearchPage, {} from "./transsearch-page"
 
 
 const notFoundPage = () => {
@@ -24,10 +24,8 @@ const AppRouter = () => (
     <div>
           <Header />
           <Switch>
-              <Route path = "/" component = {ListPage} exact={true}/>
-              <Route path = "/list" component = {ListPage} />
-              <Route path = "/add" component = {AddPage} />
-              <Route path = "/edit/:id" component = {EditPage} />
+              <Route path = "/" component = {HomePage} exact={true}/>
+              <Route path = "/transactions" component = {TransSearchPage} />
               <Route component = {notFoundPage} />
           </Switch>
     </div>
