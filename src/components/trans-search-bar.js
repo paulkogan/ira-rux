@@ -55,9 +55,7 @@ componentDidMount() {
                 //the click happens on TransList, which then passes it up the chain to TS
 
   render () {
-       console.log("in SearchBar:   props.selectedEntity is "+this.props.selectedEntity);
-       console.log("in SearchBar:   props.showEntityPicklist is "+this.props.showEntityPicklist);
-        return (
+         return (
           <div >
                 <div className="search-bar">
                     {"Search:    "}
@@ -76,7 +74,7 @@ componentDidMount() {
                 </div>
             </div>
 
-      );
+        );    
 
   }
 

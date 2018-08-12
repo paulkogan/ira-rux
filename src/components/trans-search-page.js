@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import TransList from './trans_list'
-import SearchBar from './search_bar'
+import TransList from './trans-list'
+import TransSearchBar from './trans-search-bar'
 
 const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
 
@@ -62,7 +62,7 @@ startNewEntitySearchCB = () => {
         return (
           <div>
 
-            <SearchBar
+            <TransSearchBar
                   selectedEntity = {this.state.target_entity_id}
                   showEntityPicklist = {this.state.showEntityPicklist}
                   startNewEntitySearchCB = {this.startNewEntitySearchCB}

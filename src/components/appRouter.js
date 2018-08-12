@@ -3,10 +3,9 @@ import React, {} from "react";
 import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 import Header, {} from "./header"
 import HomePage, {} from "./home-page.js"
-import AddPage, {} from "./add-page.js"
-import ListPage, {} from "./list-page"
-import TransSearchPage, {} from "./transsearch-page"
-
+import TransSearchPage, {} from "./trans-search-page"
+import DealsListPage, {} from "./deals-list-page"
+import DealDetailsPage, {} from "./deal-details-page"
 
 const notFoundPage = () => {
       return (
@@ -26,6 +25,8 @@ const AppRouter = () => (
           <Switch>
               <Route path = "/" component = {HomePage} exact={true}/>
               <Route path = "/transactions" component = {TransSearchPage} />
+              <Route path = "/deals" component = {DealsListPage} />
+              <Route path = "/dealdetails/:id" component = {DealDetailsPage} />
               <Route component = {notFoundPage} />
           </Switch>
     </div>
