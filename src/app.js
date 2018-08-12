@@ -11,6 +11,8 @@ import moment from 'moment';
 import "normalize.css/normalize.css"; //all browsers look the same
 import "./styles/style.scss";
 
+// require("babel-core/register");
+// require("babel-polyfill");
 
 export const store = createStore(
       combineReducers ({
