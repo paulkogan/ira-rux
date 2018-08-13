@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import DealFinancials from './deal-financials-component'
-import ShowOwnership from './show-ownership-component'
+import DealFinancials from './d-financials-component'
+import ShowOwnership from './d-ownership-component'
 
 //get this from Store?
 //const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
@@ -70,26 +70,9 @@ componentDidMount ()  {
 
 
 
-// componentDidMount()  {
-//
-//         const fetchURL_ownership = apiHost + "/api/getownership/"+this.state.target_entity_id;
-//           fetch(fetchURL_ownership)
-//           .then(results => results.json())
-//           .then(data => this.setState({
-//                  deal_ownership: data[0],
-//                  deal_own_totals: data[1]
-//           }))
-//
-//   }
 
 
-
-
-
-
-
-
-    render() {
+  render() {
 
         return (
 
@@ -97,6 +80,7 @@ componentDidMount ()  {
 
                                 <DealFinancials entityID = {this.state.target_entity_id} dealFinancials = {this.state.deal_financials} />
                                 <br />
+
                                 {this.state.deal_ownership && <ShowOwnership
                                         entityID = {this.state.target_entity_id}
                                         ownRows = {this.state.deal_ownership}
@@ -104,17 +88,11 @@ componentDidMount ()  {
 
                                 />}
                                 <br />
-
-
-
-
-                          </div>
+                        </div>
 
 
 
         ) //return
-
-
     } //render
 } //class
 

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
+import {formatCurrency} from './ira-utils'
 
 
-//component get props
 
 const OwnershipRow  = (props) => {
 
@@ -16,7 +16,7 @@ const OwnershipRow  = (props) => {
                              {"  "+ownRow.investment_name}
                              {"  "+ownRow.passthru_name? ownRow.passthru_name : "No Passthru"}
                              {"  "+ownRow.wired_date}
-                             {"  "+ownRow.amount}
+                             {"  "+formatCurrency(ownRow.amount)}
                              {"  "+ownRow.capital_pct+"%"}
                       </li>
                       </div>
@@ -45,7 +45,7 @@ const ShowOwnership= (props) => {
                     <u> Ownership Information </u><br />
                     {ownRowsList}
                     <br />
-                    Total Capital: {props.ownTotals.totalCapital}<br/>
+                    Total Capital: {formatCurrency(props.ownTotals.totalCapital)}<br/>
                     Total Capital Pct: {props.ownTotals.totalCapitalPct} %<br/>
             </div>
 

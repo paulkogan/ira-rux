@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import TransList from './trans-list'
-import TransSearchBar from './trans-search-bar'
+import TransList from './t-list';
+import TransSearchBar from './t-search-bar';
 
-const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
+//const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
+const apiHost = "http://localhost:8081";
 
 class TransSearchPage extends Component {
 
@@ -13,31 +14,34 @@ class TransSearchPage extends Component {
 
         this.state = {
             target_entity_id:null,
-            transResults: [],
+            transResults: null,
             showEntityPicklist: true,
          }
     } // constructor
 
-async componentDidMount() {
-          const fetchURL = apiHost + "/api/transforentity/"+this.state.target_entity_id;
-          try {
-                  const response = await fetch(fetchURL);
-                  const json = await response.json();
-                  this.setState({transResults:json});
+// async componentDidMount() {
+//           const fetchURL = apiHost + "/api/transforentity/"+this.state.target_entity_id;
+//           console.log("transactions FETCH URL is  "+fetchURL)
+//           try {
+//                   const response = await fetch(fetchURL);
+//                   const json = await response.json();
+//                   this.setState({transResults:json});
+//                   console.log("TSP got back: "+JSON.stringify(json[0])+"\n\n")
+//
+//           } catch (error) {
+//                   console.log("TSP Error fetching Transaction Results" + error);
+//           }
+//
+//
+//   }  //cDM
 
-          } catch (error) {
-                  console.log("Error fetching Transaction Results" + error);
-          }
-
-
-  }  //cDM
 
 
 
 
 // //use arrow functions to bind, call CDM as a CB funcion after SetState
 //this is what you click on
-// I want : when I click on an entity, hide entity pick list
+// REQ: : when I click on an entity, hide entity pick list
 //when I click in search bar, show entity pick list.
 
 setEntityForTransSearchCB = (entityResult) => {
@@ -60,6 +64,23 @@ startNewEntitySearchCB = () => {
 
 
 
+//promises version
+  componentDidMount ()  {
+            const fetchURL = apiHost + "/api/transforentity/"+this.state.target_entity_id;
+            console.log("transactions FETCH URL is  "+fetchURL)
+            fetch(fetchURL)
+             .then(results => results.json())
+             .then(data =>  {
+                    this.setState({transResults:data})
+              })
+
+
+    }
+
+
+
+
+
     render() {
        console.log("in TS - Target_Entity_ID is  "+this.state.target_entity_id)
         return (
@@ -71,8 +92,12 @@ startNewEntitySearchCB = () => {
                   startNewEntitySearchCB = {this.startNewEntitySearchCB}
                   onEntitySelectCB = {this.setEntityForTransSearchCB}
             />
-            <div >
-                 { (!this.state.showEntityPicklist) && <TransList transResults = {this.state.transResults}/> }
+
+            <br/>
+
+            <br/>
+            <div>
+                   { ((!this.state.showEntityPicklist) && this.state.transResults.length >0) && <TransList transResults = {this.state.transResults}/> }
             </div>
           </div>
 
@@ -81,3 +106,8 @@ startNewEntitySearchCB = () => {
 } //class
 
 export default TransSearchPage;
+
+                // { ((!this.state.showEntityPicklist) && this.state.transResults) && <TransList transResults = {this.state.transResults}/> }
+                //   Transactions Payload is   {JSON.stringify(this.state.transResults)}
+
+                            //Transactions STATE is   {JSON.stringify(this.state.transResults)}

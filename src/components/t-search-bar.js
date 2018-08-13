@@ -4,8 +4,8 @@ import EntityPicklist from './entity_picklist'
 
 
 //const apiHost = require("./index.js").apiHost;
-//const apiHost = "http://localhost:8080";
-const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
+const apiHost = "http://localhost:8081";
+//const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
 
 
 class SearchBar extends Component{
@@ -21,6 +21,17 @@ constructor(props) {
 
 }
 
+
+//gets list of entities results from API, assigns to State
+componentDidMount() {
+          const fetchURL = apiHost+"/api/searchentities/"+this.state.searchText;
+          console.log("searchbar FETCH URL is  "+fetchURL)
+          fetch(fetchURL)
+           .then(results => results.json())
+           .then(entities => this.setState({ entityResults: entities}))
+  }
+
+
 onInputChange = (text) => {
     this.props.startNewEntitySearchCB()
     this.setState({searchText:text}, () => {
@@ -31,14 +42,6 @@ onInputChange = (text) => {
 
 
 
-//gets list of entities results from API, assigns to State
-componentDidMount() {
-          const fetchURL = apiHost+"/api/searchentities/"+this.state.searchText;
-          console.log("searchbar FETCH URL is  "+fetchURL)
-          fetch(fetchURL)
-           .then(results => results.json())
-           .then(entities => this.setState({ entityResults: entities}))
-  }
 
 
                 //show entityPickList only if you dont have a selected Entity
