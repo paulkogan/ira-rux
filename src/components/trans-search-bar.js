@@ -30,16 +30,6 @@ onInputChange = (text) => {
 } //onInputchange
 
 
-//this is the eventHandler, a method on the class - DOES NOT GET CALLED
-// handleClick(e) {
-//     console.log("button sent: "+this.state.searchText);
-//     //this.props.doSearchCB(this.state.searchText);
-//     this.componentDidMount()
-//
-// }
-
-
-
 
 //gets list of entities results from API, assigns to State
 componentDidMount() {
@@ -74,7 +64,7 @@ componentDidMount() {
                 </div>
             </div>
 
-        );    
+        );
 
   }
 
@@ -84,11 +74,3 @@ componentDidMount() {
 
 
 export default SearchBar;
-
-
-
-// <button className="button"
-// onClick={
-//   (e)=>{this.handleClick(e)}
-//
-// }>Search</button>

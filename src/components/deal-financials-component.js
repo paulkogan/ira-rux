@@ -9,10 +9,9 @@ const DealsFinancials = (props) => {
   return (
 
             <div>
-
+                  <u> Deal Financials for   {dealFinancials.name} </u><br/>
                    Entity_ID: {props.entityID}  <br/>
                    Deal_ID: {dealFinancials.id}  <br/>
-                   Name: {dealFinancials.name}  <br/>
                    total_assets: {dealFinancials.total_assets}  <br/>
                    total_debt: {dealFinancials.total_debt}  <br/>
                    equity_value: {dealFinancials.equity_value}  <br/>

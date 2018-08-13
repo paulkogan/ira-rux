@@ -18,18 +18,21 @@ class TransSearchPage extends Component {
          }
     } // constructor
 
+async componentDidMount() {
+          const fetchURL = apiHost + "/api/transforentity/"+this.state.target_entity_id;
+          try {
+                  const response = await fetch(fetchURL);
+                  const json = await response.json();
+                  this.setState({transResults:json});
 
-    // // api call - transcations for entity
-  componentDidMount() {
-            const fetchURL = apiHost + "/api/transforentity/"+this.state.target_entity_id;
-            console.log("TS transactions FETCH URL is  "+fetchURL)
-            fetch(fetchURL)
-            .then(results => results.json())
-            .then(transactions => this.setState({ transResults: transactions })
-            ) //ts
-    }
+          } catch (error) {
+                  console.log("Error fetching Transaction Results" + error);
+          }
 
-//     //      /api/searchentities/:term
+
+  }  //cDM
+
+
 
 
 // //use arrow functions to bind, call CDM as a CB funcion after SetState
@@ -37,9 +40,9 @@ class TransSearchPage extends Component {
 // I want : when I click on an entity, hide entity pick list
 //when I click in search bar, show entity pick list.
 
-  setEntityForTransSearchCB = (entityResult) => {
+setEntityForTransSearchCB = (entityResult) => {
             const entity_id = entityResult.id;
-            //switch display modes
+            //switch display modes - you picked one, so hide the pick list
             this.setState ({showEntityPicklist:false});
             this.setState ({target_entity_id:entity_id}, () => {
                     console.log("TS Setting state CB: target_entity_id is "+this.state.target_entity_id)
