@@ -25,7 +25,7 @@ const OwnershipRow  = (props) => {
 
   }
 
-const ShowOwnership= (props) => {
+const OwnershipComponent = (props) => {
     const ownRowsList = props.ownRows.map((ownRow) => {
            return (
               <OwnershipRow
@@ -54,13 +54,4 @@ const ShowOwnership= (props) => {
 
 
 }
-export default ShowOwnership;
-
-
-
-
-
-
-
-
-// totalCapitalPct: {props.totalCapitalPct}<br/>
+export default OwnershipComponent;

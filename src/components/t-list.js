@@ -2,21 +2,22 @@ import React, {Component} from 'react';
 import {formatCurrency} from './ira-utils';
 
 const TransItem = (props) => {
-      const transResult = props.transResult;
+
+      const {id, investor_name, investment_name, passthru_name, tt_name, t_wired_date, t_amount} = props.transResult;
+
       return (
-                <li>
-                <div>
+        <div>
+            <li>
+                  {id+".  "}
+                  {investor_name+" "}
+                  {investment_name+" "}
+                  {passthru_name+" "}
+                  {tt_name+" "}
+                  {t_wired_date+" "}
+                  {formatCurrency(t_amount)}
+              </li>
+        </div>
 
-                      {transResult.id+".  "}
-                      {transResult.investor_name+" "}
-                      {transResult.investment_name+" "}
-                      { (transResult.passthru_name) ? transResult.passthru_name+" " : " No Passtru "}
-                      {transResult.tt_name+" "}
-                      {transResult.t_wired_date+" "}
-                      {formatCurrency(transResult.t_amount)}
-
-                </div>
-                </li>
       )
 
 }
@@ -25,6 +26,7 @@ const TransItem = (props) => {
 //component get props
 const TransList = (props) => {
       const displaytransactions = props.transResults.map(  (transResult) => {
+                  if (!transResult.passthru_name) transResult.passthru_name = " No Passthru "
                   return (
                       <TransItem
                           transResult = {transResult}

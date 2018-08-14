@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import DealFinancials from './d-financials-component'
-import ShowOwnership from './d-ownership-component'
+import DealFinancialsComponent from './d-financials-component'
+import OwnershipComponent from './d-ownership-component'
+import CapCallsComponent from './d-capcalls-component'
 
 //get this from Store?
 //const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
@@ -22,7 +23,8 @@ class DealDetailsPage extends Component {
               target_entity_id:props.match.params.id,
               deal_financials: {id:1001},
               deal_ownership: [],
-              deal_own_totals: {}
+              deal_own_totals: {},
+              deal_cap_calls:[]
     }
 
     //this.chainFetch2Data = this.chainFetch2Data.bind(this);
@@ -53,6 +55,7 @@ class DealDetailsPage extends Component {
 componentDidMount ()  {
         const fetchURL_deal = apiHost + "/api/getdealfinancials/"+this.state.target_entity_id;
         const fetchURL_ownership = apiHost + "/api/getownership/"+this.state.target_entity_id;
+        const fetchURL_capcalls = apiHost + "/api/getcapcallswithdetails/"+this.state.target_entity_id;
           fetch(fetchURL_deal)
            .then(results => results.json())
            .then(data =>  {
@@ -64,6 +67,9 @@ componentDidMount ()  {
                   deal_ownership: data[0],
                   deal_own_totals: data[1]
            }))
+           .then( () => fetch(fetchURL_capcalls)  )
+           .then(results => results.json())
+           .then(data => this.setState({deal_cap_calls: data}))
 
   }
 
@@ -73,18 +79,21 @@ componentDidMount ()  {
 
 
   render() {
-
         return (
-
                           <div>
-
-                                <DealFinancials entityID = {this.state.target_entity_id} dealFinancials = {this.state.deal_financials} />
+                                <DealFinancialsComponent  entityID = {this.state.target_entity_id} dealFinancials = {this.state.deal_financials} />
                                 <br />
 
-                                {this.state.deal_ownership && <ShowOwnership
+                                {(this.state.deal_ownership.length >0) && <OwnershipComponent
                                         entityID = {this.state.target_entity_id}
                                         ownRows = {this.state.deal_ownership}
                                         ownTotals = {this.state.deal_own_totals}
+
+                                />}
+                                  <br />
+
+                                {(this.state.deal_cap_calls.length >0) && <CapCallsComponent
+                                        dealCapCalls = {this.state.deal_cap_calls}
 
                                 />}
                                 <br />
