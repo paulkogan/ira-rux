@@ -8,7 +8,8 @@
     "babel-NO-WEBPACK": "babel ./src/indec_game.js --out-file ./public/runapp.js --presets=env,react --watch",
     "webpack": "webpack --watch",
     "dev-server": "webpack-dev-server",
-    "start": "run-p dev-server"
+    "start": "run-p dev-server",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -46,6 +47,8 @@
     "babel-preset-airbnb": "^2.5.3",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "jest": "^23.5.0",
+    "react-test-renderer": "^16.4.2",
     "webpack-command": "^0.4.1"
   }
 }

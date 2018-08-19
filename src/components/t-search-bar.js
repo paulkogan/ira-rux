@@ -51,7 +51,7 @@ onInputChange = (text) => {
          return (
           <div >
                 <div className="search-bar">
-                    {"Search:    "}
+                    {"Filter Transactions:    "}
                     <input size="40" value = {this.state.searchText}
                            onChange = {
                                (eventObj) => {this.onInputChange(eventObj.target.value)}
@@ -60,7 +60,7 @@ onInputChange = (text) => {
                     />
                 </div>
 
-                <div>
+                <div className="pick-list">
                     { (this.props.showEntityPicklist) && <EntityPicklist entityResults = {this.state.entityResults}
                                     onEntitySelectCB = {this.props.onEntitySelectCB}
                     />}

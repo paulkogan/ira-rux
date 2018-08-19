@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 const EntityPicklistItem = (props) => {
       const entityResult = props.entityResult;
       return (
-                <li onClick={() => props.onEntitySelectCB(entityResult)} className="list-group-item">
+                <li onClick={() => props.onEntitySelectCB(entityResult)} className="pick-list-item">
                 <div>
                       {entityResult.id+".  "}
                       {entityResult.name}
@@ -30,9 +30,9 @@ const EntityPicklist = (props) => {
 
 
 return (
-          <ul className ="col-md-6 list-group">
+          <div>
               {displaylistofentities}
-          </ul>
+          </div>
       )
 }
 

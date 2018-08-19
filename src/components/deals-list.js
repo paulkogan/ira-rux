@@ -8,14 +8,12 @@ const DealItem = (props) => {
       //console.log("DealResult is "+JSON.stringify(dealResult))
       const dealLink = "/dealdetails/"+ props.dealResult.id
       return (
-                <li>
-                <div>
-                      {dealResult.id+".  "}
 
-                      <Link to={dealLink} className="head-links"> {dealResult.name} </Link>
+                <div>
+                      <Link to={dealLink}> {dealResult.id+".  "} {dealResult.name} </Link>
                       <br/>
                 </div>
-                </li>
+
       )
 
 }
@@ -37,7 +35,7 @@ const DealsList = (props) => {
 
 return (
         <div>
-          <ul className ="col-md-8 list-group">
+          <ul>
               {displayDeals}
           </ul>
         </div>

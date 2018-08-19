@@ -8,60 +8,43 @@ import CapCallsComponent from './d-capcalls-component'
 //const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
 const apiHost = "http://localhost:8081"
 
-
-
-
-
+//  target_entity_id:props.match.params.id,
 
 class DealDetailsPage extends Component {
 
-    constructor (props) {
-        super(props)
+      constructor (props) {
+          super(props)
+          //let entity = (props.match) ? props.match.params.id : props.id
+
+          this.state = {
+                target_entity_id: null,
+                deal_financials: {id:1001},
+                deal_ownership: [],
+                deal_own_totals: {},
+                deal_cap_calls:[]
+         }
+     }
 
 
-        this.state = {
-              target_entity_id:props.match.params.id,
-              deal_financials: {id:1001},
-              deal_ownership: [],
-              deal_own_totals: {},
-              deal_cap_calls:[]
-    }
+async componentDidMount ()  {
 
-    //this.chainFetch2Data = this.chainFetch2Data.bind(this);
-    // this.componentDidMount = this.componentDidMount.bind(this);
+        //get entity id from route props (nid) or from URL param
+        await this.setState({
+          target_entity_id: this.props.match ? this.props.match.params.id : (this.props.nid ? this.props.nid : null)
+        });
 
-
-} // constructor
-
-
-// async fetchData () {
-//       const fetchURL_deal = apiHost + "/api/getdealfinancials/"+this.state.target_entity_id;
-//       const fetchURL_ownership = apiHost + "/api/getownership/"+this.state.target_entity_id;
-//       try {
-//               const response_d = await fetch(fetchURL_deal);
-//               const json_d = await response_d.json();
-//               this.setState({deal_financials:json_d});
-//
-//               const response_o = await fetch(fetchURL_ownership);
-//               const json_o = await response_o.json();
-//               this.setState({deal_ownership:json_o[0]});
-//               this.setState({deal_own_totals:json_o[1]});
-//
-//       }  catch (error) {
-//               console.log("Error fetching DealFinancials" + error);
-//       }
-// }
-
-componentDidMount ()  {
         const fetchURL_deal = apiHost + "/api/getdealfinancials/"+this.state.target_entity_id;
         const fetchURL_ownership = apiHost + "/api/getownership/"+this.state.target_entity_id;
         const fetchURL_capcalls = apiHost + "/api/getcapcallswithdetails/"+this.state.target_entity_id;
+        //console.log("Fetch Deal URL is " + fetchURL_deal);
+
+
           fetch(fetchURL_deal)
            .then(results => results.json())
            .then(data =>  {
                   this.setState({ deal_financials: data})
             })
-           .then( () => fetch(fetchURL_ownership)     )
+           .then( () => fetch(fetchURL_ownership))
            .then(results => results.json())
            .then(data => this.setState({
                   deal_ownership: data[0],
@@ -71,10 +54,8 @@ componentDidMount ()  {
            .then(results => results.json())
            .then(data => this.setState({deal_cap_calls: data}))
 
-  }
 
-
-
+  } //CDM
 
 
 
@@ -97,7 +78,10 @@ componentDidMount ()  {
 
                                 />}
                                 <br />
-                        </div>
+
+
+
+                          </div>
 
 
 
@@ -105,10 +89,44 @@ componentDidMount ()  {
     } //render
 } //class
 
-
+// DealDetailsPage.defaultProps = {
+//    nid: 0
+// }
 
 
 export default DealDetailsPage;
+
+// async fetchData () {
+//       const fetchURL_deal = apiHost + "/api/getdealfinancials/"+this.state.target_entity_id;
+//       const fetchURL_ownership = apiHost + "/api/getownership/"+this.state.target_entity_id;
+//       try {
+//               const response_d = await fetch(fetchURL_deal);
+//               const json_d = await response_d.json();
+//               this.setState({deal_financials:json_d});
+//
+//               const response_o = await fetch(fetchURL_ownership);
+//               const json_o = await response_o.json();
+//               this.setState({deal_ownership:json_o[0]});
+//               this.setState({deal_own_totals:json_o[1]});
+//
+//       }  catch (error) {
+//               console.log("Error fetching DealFinancials" + error);
+//       }
+// }
+
+
+
+
+
+
+
+
+
+
+                //target_entity_id: props.match.params.id,
+
+  //let entity = (props.match) ? props.match.params.id : props.id
+
 
     //                                    totalCapital = {this.state.deal_ownership[1].totalCapital}
 

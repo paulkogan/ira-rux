@@ -19,15 +19,15 @@ const ItemLine = (props) => {
 
           return (
               <div>
-                        <table border = "0" width="100%">
+                        <table border = "0"  >
                               <tbody>
-                               <tr width ="100%">
-                                  <td width="5%"> &nbsp;</td>
-                                   <td align = "left" width="15%">{props.expense.description} </td>
-                                   <td align = "center"  width="15%"> {props.expense.createdAt}</td>
-                                   <td align = "center"  width="15%"> $ {props.expense.amount}</td>
-                                  <td width="30%"> {props.expense.note}</td>
-                                  <td width="20%"> <button onClick = {() => localDeleteExpense(props.expense)}>Delete Expense</button></td>
+                               <tr >
+                                  <td > &nbsp;</td>
+                                   <td align = "left" >{props.expense.description} </td>
+                                   <td align = "center"> {props.expense.createdAt}</td>
+                                   <td align = "center"> $ {props.expense.amount}</td>
+                                  <td> {props.expense.note}</td>
+                                  <td > <button onClick = {() => localDeleteExpense(props.expense)}>Delete Expense</button></td>
                                 </tr>
                               </tbody>
                             </table>

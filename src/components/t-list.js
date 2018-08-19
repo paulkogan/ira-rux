@@ -7,7 +7,6 @@ const TransItem = (props) => {
 
       return (
         <div>
-            <li>
                   {id+".  "}
                   {investor_name+" "}
                   {investment_name+" "}
@@ -15,7 +14,6 @@ const TransItem = (props) => {
                   {tt_name+" "}
                   {t_wired_date+" "}
                   {formatCurrency(t_amount)}
-              </li>
         </div>
 
       )
@@ -38,8 +36,8 @@ const TransList = (props) => {
 
 
 return (
-        <div>
-          <ul className ="col-md-8 list-group">
+        <div className = "items-list">
+          <ul>
               {displaytransactions}
           </ul>
         </div>

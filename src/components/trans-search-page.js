@@ -13,8 +13,8 @@ class TransSearchPage extends Component {
 
 
         this.state = {
-            target_entity_id:null,
-            transResults: null,
+            target_entity_id: 0,
+            transResults: [],
             showEntityPicklist: true,
          }
     } // constructor
@@ -97,7 +97,7 @@ startNewEntitySearchCB = () => {
 
             <br/>
             <div>
-                   { ((!this.state.showEntityPicklist) && this.state.transResults.length >0) && <TransList transResults = {this.state.transResults}/> }
+                   { (this.state.transResults.length >0) && <TransList transResults = {this.state.transResults}/> }
             </div>
           </div>
 
@@ -106,7 +106,7 @@ startNewEntitySearchCB = () => {
 } //class
 
 export default TransSearchPage;
-
+// { ((!this.state.showEntityPicklist) &&
                 // { ((!this.state.showEntityPicklist) && this.state.transResults) && <TransList transResults = {this.state.transResults}/> }
                 //   Transactions Payload is   {JSON.stringify(this.state.transResults)}
 

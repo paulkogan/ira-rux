@@ -41,9 +41,9 @@ const OwnershipComponent = (props) => {
 
 
   return (
-            <div>
+            <div className = "items-list">
                     <u> Ownership Information </u><br />
-                    {ownRowsList}
+                    {(ownRowsList.length >1)} && {ownRowsList} }
                     <br />
                     Total Capital: {formatCurrency(props.ownTotals.totalCapital)}<br/>
                     Total Capital Pct: {props.ownTotals.totalCapitalPct} %<br/>

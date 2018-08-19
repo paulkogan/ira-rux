@@ -12,7 +12,7 @@ import {formatCurrency} from './ira-utils'
 const CCTransRow = (props) => {
 
 
-  const {id, investor_name, investment_name, passthru_name, tt_name, t_wired_date, t_amount} = props.transaction;
+            const {id, investor_name, investment_name, passthru_name, tt_name, t_wired_date, t_amount} = props.transaction;
 
             return (
 
@@ -29,10 +29,6 @@ const CCTransRow = (props) => {
                       </div>
 
             )
-
-
-
-
 }
 
 
@@ -61,25 +57,22 @@ const CapCallModule  = (props) => {
 
 
             return (
-
               <div>
+                    <div className = "div-border-thin">
+                            Capital Call : <font color= "white">{cc_name} </font><br/>
+                            Deal: {dealName} <br/>
+                            target_amount:  {formatCurrency(target_amount)} <br/>
+                            target_per_investor: {formatCurrency(target_per_investor)} <br/>
 
-                      Capital Call : <font color= "white">{cc_name} </font><br/>
-                      Deal: {dealName} <br/>
-                      target_amount:  {formatCurrency(target_amount)} <br/>
-                      target_per_investor: {formatCurrency(target_per_investor)} <br/>
-
-
-                      <div>
-                            {ccTransactionsList}
-                      </div>
-                      Raised to-date: {formatCurrency(totalRaised)} <br/>
-                       <br/><br/>
-
+                            <div>
+                                  {ccTransactionsList}
+                            </div>
+                            Raised to-date: {formatCurrency(totalRaised)} <br/>
+                    </div>
+                    <br/>
               </div>
 
             )
-
   }
 
 const CapCallsComponent= (props) => {
@@ -96,11 +89,9 @@ const CapCallsComponent= (props) => {
 
 
   return (
-            <div>
+            <div className = "div-border">
                     <u> Capital Calls Information </u><br />
                     {capCallsList}
-                    <br />
-
             </div>
 
      )

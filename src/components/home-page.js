@@ -9,10 +9,10 @@ const HomePage = () => (
               <br />
             <NavLink to="/deals" className="head-links" activeClassName="is-active"> Deals </NavLink>
                 <br />
-            <NavLink to="/add" className="head-links" activeClassName="is-active"> Add New </NavLink>
-             <br />
-            <NavLink to="/edit/768" className = "head-links" activeClassName="is-active"> View Item </NavLink>
-             <br />
+            <NavLink to="/newtrans" className="head-links" activeClassName="is-active"> New Transaction </NavLink>
+                    <br />
+
+
              <br />
        </div>
 )
