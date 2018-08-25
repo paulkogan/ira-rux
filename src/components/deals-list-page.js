@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import DealsList from './deals-list'
 
 
-//const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
-const apiHost = "http://localhost:8081"
+import {formatCurrency, getAPI_endpoint} from './ira-utils';
+const apiHost = getAPI_endpoint()
+
 
 
 class DealsListPage extends Component {

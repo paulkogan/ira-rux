@@ -4,11 +4,9 @@ import DealFinancialsComponent from './d-financials-component'
 import OwnershipComponent from './d-ownership-component'
 import CapCallsComponent from './d-capcalls-component'
 
-//get this from Store?
-//const apiHost = "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
-const apiHost = "http://localhost:8081"
+import {formatCurrency, getAPI_endpoint} from './ira-utils';
+const apiHost = getAPI_endpoint()
 
-//  target_entity_id:props.match.params.id,
 
 class DealDetailsPage extends Component {
 
