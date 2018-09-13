@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 
 
+export function getVersion() {
+
+          return "3.1 adding Google Material UI"
+
+}
+
+
 
 export function formatCurrency (amount) {
             if (!amount) return "$0.00"
