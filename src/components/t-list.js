@@ -25,7 +25,7 @@ const TransItem = (props) => {
 
 //component get props
 const TransList = (props) => {
-      const displaytransactions = props.transResults.map(  (transResult) => {
+      const displaytransactions = props.transactions.map(  (transResult) => {
                   if (!transResult.passthru_name) transResult.passthru_name = " No Passthru "
                   return (
                       <TransItem

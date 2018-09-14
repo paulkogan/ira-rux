@@ -33,7 +33,7 @@ const styles = {
           table : {
               width: '100%',
               tableLayout: "auto",
-              border: '2px solid black',
+              border: '3px solid black',
               padding: 0,
           },
 

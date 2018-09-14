@@ -31,7 +31,7 @@ const styles = {
           table : {
              width: '100%',
              tableLayout: "auto",
-              border: '3px solid black',
+              border: '2px solid black',
               padding: 0,
           },
 
@@ -54,7 +54,7 @@ const styles = {
 
 
 
-class OwnershipComponent extends Component {
+class TransListComponent extends Component {
 
       constructor (props) {
           super(props)
@@ -73,89 +73,66 @@ getStripedStyle(index) {
 
 render() {
   const { classes } = this.props;
+  //const {id, investor_name, investment_name, passthru_name, tt_name, t_wired_date, t_amount} = this.props.transactions;
 
-  //<Table
+
 
   return (
 
             <Table className={classes.table}>
                     <colgroup>
+                        <col width="5%" />
+                        <col width="15%" />
+                        <col width="25%" />
+                        <col width="15%" />
+                        <col width="13%" />
                         <col width="10%" />
-                        <col width="5%" />
-                        <col width="30%" />
-                        <col width="30%" />
-                        <col width="20%" />
-                        <col width="5%" />
+                        <col width="10%" />
+                        <col width="2%" />
                     </colgroup>
 
 
                       <TableHead>
-                        <TableRow>
-                          <TableCell colSpan="6" style={{fontSize: 24, padding: 0, color: 'black', textAlign: 'center'}}>
 
-                            <AppBar position="static">
-                                <Toolbar>
-                                            <Typography variant="title" color="inherit">
-                                                                    Ownership Information
-                                            </Typography>
-                                </Toolbar>
-                            </AppBar>
-
-                          </TableCell>
-                        </TableRow>
 
                         <TableRow >
-                                  <TableCell colSpan="2" className={classes.cellTwo}>Investor</TableCell>
+                                  <TableCell className={classes.cellTwo}>ID</TableCell>
+                                  <TableCell className={classes.cellTwo}>Investor</TableCell>
                                   <TableCell className={classes.cellTwo}>Investment</TableCell>
+                                  <TableCell className={classes.cellTwo}>Passthru</TableCell>
+                                  <TableCell className={classes.cellTwo}>Trans. Type</TableCell>
                                   <TableCell className={classes.cellTwo}>Date</TableCell>
                                   <TableCell className={classes.cellTwo}>Amt.</TableCell>
-                                  <TableCell className={classes.cellTwo}>Percent</TableCell>
+                                  <TableCell className={classes.cellTwo}>&nbsp;</TableCell>
                         </TableRow>
                       </TableHead>
 
 
 
                   <TableBody >
-                       {this.props.ownRows.map((ownRow,index) => {
-
+                       {this.props.transactions.map((trans,index) => {
                          return (
-
                                  <TableRow key={index} style={{...this.getStripedStyle(index)}}>
-                                   <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
-                                   <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
-                                   <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>
-                                   <TableCell className={classes.cellOne}>{formatCurrency(ownRow.amount)}</TableCell>
-                                   <TableCell className={classes.cellOne}>{ownRow.capital_pct.toFixed(2)+"%"}</TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.id}</TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.investor_name.slice(0,20)}</TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.investment_name} </TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.passthru_name} </TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.tt_name} </TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.t_wired_date} </TableCell>
+                                         <TableCell className={classes.cellOne}>{formatCurrency(trans.t_amount)}</TableCell>
+                                         <TableCell className={classes.cellOne}>&nbsp;</TableCell>
                                  </TableRow>
                                );
                             })}
-
-                            <TableRow >
-                              <TableCell></TableCell>
-                              <TableCell > Totals:</TableCell>
-                              <TableCell></TableCell>
-                              <TableCell></TableCell>
-                              <TableCell className={classes.cellTwo} >{formatCurrency(this.props.ownTotals.totalCapital)}</TableCell>
-                              <TableCell>{this.props.ownTotals.totalCapitalPct}%</TableCell>
-                            </TableRow>
-
-
-
                       </TableBody>
-
                     </Table>
-
-
-
-
-
      ) //return
   } //render
 
 
 } //component
 
-OwnershipComponent.propTypes = {
+TransListComponent.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
@@ -163,4 +140,11 @@ OwnershipComponent.propTypes = {
 
 
 
-export default withStyles(styles)(OwnershipComponent)
+export default withStyles(styles)(TransListComponent)
+
+
+// <TableRow>
+//   <TableCell colSpan="8" style={{fontSize: 14, padding: 0, color: 'black', textAlign: 'center'}}>
+//         Transactions
+//   </TableCell>
+// </TableRow>

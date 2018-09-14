@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import TransList from './t-list';
+//import TransList from './t-list';
 import TransSearchBar from './t-search-bar';
+import TransListComponent from './t-list-component'
 import {formatCurrency, getAPI_endpoint} from './ira-utils';
 const apiHost = getAPI_endpoint()
 
@@ -19,30 +20,6 @@ class TransSearchPage extends Component {
          }
     } // constructor
 
-// async componentDidMount() {
-//           const fetchURL = apiHost + "/api/transforentity/"+this.state.target_entity_id;
-//           console.log("transactions FETCH URL is  "+fetchURL)
-//           try {
-//                   const response = await fetch(fetchURL);
-//                   const json = await response.json();
-//                   this.setState({transResults:json});
-//                   console.log("TSP got back: "+JSON.stringify(json[0])+"\n\n")
-//
-//           } catch (error) {
-//                   console.log("TSP Error fetching Transaction Results" + error);
-//           }
-//
-//
-//   }  //cDM
-
-
-
-
-
-// //use arrow functions to bind, call CDM as a CB funcion after SetState
-//this is what you click on
-// REQ: : when I click on an entity, hide entity pick list
-//when I click in search bar, show entity pick list.
 
 setEntityForTransSearchCB = (entityResult) => {
             const entity_id = entityResult.id;
@@ -97,7 +74,7 @@ startNewEntitySearchCB = () => {
 
             <br/>
             <div>
-                   { (this.state.transResults.length >0) && <TransList transResults = {this.state.transResults}/> }
+                   { (this.state.transResults.length >0) && <TransListComponent transactions = {this.state.transResults}/> }
             </div>
           </div>
 

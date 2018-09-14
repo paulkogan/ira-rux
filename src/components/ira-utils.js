@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.1 adding Google Material UI"
+          return "3.2 MUI on Deals & Transactions"
 
 }
 
