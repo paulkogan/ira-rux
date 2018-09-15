@@ -9,6 +9,8 @@ const HomePage = () => (
               <br />
             <NavLink to="/deals" className="head-links" activeClassName="is-active"> Deals </NavLink>
                 <br />
+            <NavLink to="/investors" className="head-links" activeClassName="is-active"> Investors </NavLink>
+                    <br />
             <NavLink to="/newtrans" className="head-links" activeClassName="is-active"> New Transaction </NavLink>
                     <br />
 

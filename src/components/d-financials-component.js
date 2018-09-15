@@ -35,6 +35,7 @@ const styles = {
               tableLayout: "auto",
               border: '3px solid black',
               padding: 0,
+              background: '#99a6b2',
           },
 
           cellOne: {

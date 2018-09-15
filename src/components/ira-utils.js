@@ -3,9 +3,18 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.2 MUI on Deals & Transactions"
+          return "3.3 +Portfolio Page"
 
 }
+
+
+export function getStripedStyle(index) {
+       //console.log("Index is "+index)
+       return {
+         background: index % 2 ? '#99a6b2' : 'lightsteelblue'
+       };
+     }
+
 
 
 
@@ -23,7 +32,7 @@ export function formatCurrency (amount) {
 export function getAPI_endpoint() {
           //let current_ENV = process.env.NODE_ENV;
 
-        let current_ENV = 'production';
+        let current_ENV = 'dev';
       //let current_ENV = 'development';
 
         if (current_ENV  === 'production')  {

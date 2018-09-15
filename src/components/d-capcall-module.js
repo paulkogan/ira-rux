@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 
 
 import TransListComponent from './t-list-component'
-import {formatCurrency} from './ira-utils'
+import {formatCurrency, getStripedStyle} from './ira-utils'
 //import 'typeface-roboto'
 
 
@@ -34,6 +34,7 @@ const styles = {
               tableLayout: "auto",
               border: '2px solid black',
               padding: 0,
+              background: '#99a6b2',
           },
 
           cellOne: {
@@ -81,15 +82,6 @@ class CapCallModule extends Component {
           super(props)
 
      }
-
-
-getStripedStyle(index) {
-       //console.log("Index is "+index)
-       return {
-         background: index % 2 ? 'lightslategrey' : 'lightsteelblue'
-       };
-     }
-
 
 
 render() {

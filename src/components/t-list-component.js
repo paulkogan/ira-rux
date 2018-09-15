@@ -17,7 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 
 import Typography from '@material-ui/core/Typography';
 
-import {formatCurrency} from './ira-utils'
+import {formatCurrency, getStripedStyle} from './ira-utils'
 //import 'typeface-roboto'
 
 
@@ -27,6 +27,11 @@ const styles = {
             width: '100%',
             marginTop: 30,
           },
+
+          shortRow : {
+              height: 30
+          },
+
 
           table : {
              width: '100%',
@@ -44,10 +49,13 @@ const styles = {
 
         	cellTwo: {
             border: '0px solid yellow',
+            borderBottom: '2px solid black',
+            color: 'black',
             padding: '0px 0px',
             textAlign: 'center',
             fontWeight: 600,
-            color: 'black'
+            fontSize: 14,
+
         	},
 
 };
@@ -62,12 +70,6 @@ class TransListComponent extends Component {
      }
 
 
-getStripedStyle(index) {
-       //console.log("Index is "+index)
-       return {
-         background: index % 2 ? 'lightslategrey' : 'lightsteelblue'
-       };
-     }
 
 
 
@@ -83,10 +85,10 @@ render() {
                     <colgroup>
                         <col width="5%" />
                         <col width="15%" />
-                        <col width="25%" />
+                        <col width="20%" />
                         <col width="15%" />
                         <col width="13%" />
-                        <col width="10%" />
+                        <col width="15%" />
                         <col width="10%" />
                         <col width="2%" />
                     </colgroup>
@@ -95,7 +97,7 @@ render() {
                       <TableHead>
 
 
-                        <TableRow >
+                        <TableRow className={classes.shortRow}>
                                   <TableCell className={classes.cellTwo}>ID</TableCell>
                                   <TableCell className={classes.cellTwo}>Investor</TableCell>
                                   <TableCell className={classes.cellTwo}>Investment</TableCell>
@@ -112,7 +114,7 @@ render() {
                   <TableBody >
                        {this.props.transactions.map((trans,index) => {
                          return (
-                                 <TableRow key={index} style={{...this.getStripedStyle(index)}}>
+                                 <TableRow key={index} style={{...getStripedStyle(index)}}>
                                          <TableCell className={classes.cellOne}>{trans.id}</TableCell>
                                          <TableCell className={classes.cellOne}>{trans.investor_name.slice(0,20)}</TableCell>
                                          <TableCell className={classes.cellOne}>{trans.investment_name} </TableCell>

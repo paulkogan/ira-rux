@@ -17,7 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 
 import Typography from '@material-ui/core/Typography';
 
-import {formatCurrency} from './ira-utils'
+import {formatCurrency, getStripedStyle} from './ira-utils'
 //import 'typeface-roboto'
 
 
@@ -33,6 +33,7 @@ const styles = {
              tableLayout: "auto",
               border: '3px solid black',
               padding: 0,
+              background: '#99a6b2'
           },
 
           cellOne: {
@@ -61,13 +62,6 @@ class OwnershipComponent extends Component {
 
      }
 
-
-getStripedStyle(index) {
-       //console.log("Index is "+index)
-       return {
-         background: index % 2 ? 'lightslategrey' : 'lightsteelblue'
-       };
-     }
 
 
 
@@ -120,7 +114,7 @@ render() {
 
                          return (
 
-                                 <TableRow key={index} style={{...this.getStripedStyle(index)}}>
+                                 <TableRow key={index} style={{...getStripedStyle(index)}}>
                                    <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
                                    <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
                                    <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>

@@ -5,7 +5,9 @@ import Header, {} from "./header"
 import HomePage, {} from "./home-page.js"
 import TransSearchPage, {} from "./trans-search-page"
 import DealsListPage, {} from "./deals-list-page"
+import InvestorsListPage, {} from "./investors-list-page"
 import DealDetailsPage, {} from "./deal-details-page"
+import PortfolioPage, {} from "./portfolio-page"
 import NewTransactionForm, {} from "./new-transaction-form"
 
 
@@ -31,8 +33,10 @@ const AppRouter = () => (
               <Route path = "/" component = {HomePage} exact={true}/>
               <Route path = "/transactions" component = {TransSearchPage} />
               <Route path = "/deals" component = {DealsListPage} />
+              <Route path = "/investors" component = {InvestorsListPage} />
               <Route path = "/ddtest" render={  ()=>  <DealDetailsPage nid={20}/> } />
               <Route path = "/dealdetails/:id" component = {DealDetailsPage} />
+              <Route path = "/portfolio/:id" component = {PortfolioPage} />
               <Route path = "/newtrans" component = {NewTransactionForm} />
               <Route component = {notFoundPage} />
           </Switch>
