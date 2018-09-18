@@ -9,6 +9,7 @@
 # production
 /build
 /public
+/z-old
 
 # misc
 .DS_Store

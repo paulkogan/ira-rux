@@ -49,7 +49,7 @@ onInputChange = (text) => {
          return (
           <div >
                 <div className="search-bar">
-                    {"Filter Transactions:    "}
+                    {"Filter Transactions by Investment:    "}
                     <input size="40" value = {this.state.searchText}
                            onChange = {
                                (eventObj) => {this.onInputChange(eventObj.target.value)}

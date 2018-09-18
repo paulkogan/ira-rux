@@ -18,10 +18,13 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 import {formatCurrency, getStripedStyle} from './ira-utils'
+import OwnershipRowEx from './ownership-row-expand'
+import TransListComponent from './t-list-component'
+
 //import 'typeface-roboto'
 
 
-const topbarColor = '#004d99'  //lighter version of #003366
+//const topbarColor = '#004d99'  //lighter version of #003366
 
 const styles = {
 
@@ -59,17 +62,20 @@ const styles = {
             color: 'black'
         	},
 
-          cellTitle: {
-                fontSize: 18,
-                color: 'white',
-                padding: 0,
-                textAlign: 'center',
-                background: topbarColor,
-          }
+          // cellTitle: {
+          //       fontSize: 18,
+          //       color: 'white',
+          //       padding: 0,
+          //       textAlign: 'center',
+          //       background: topbarColor,
+          // }
 
 
 };
-
+// <TableRow key={index} style={{...getStripedStyle(index)}}>
+//   <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
+// </TableRow>
+// <div>
 
 
 class OwnershipComponent extends Component {
@@ -79,7 +85,7 @@ class OwnershipComponent extends Component {
 
      }
 
-
+  //                              <OwnershipRowEx key = {index} index = {index} ownRow={ownRow} />
 
 
 render() {
@@ -126,15 +132,23 @@ render() {
 
                          return (
 
-                                 <TableRow key={index} style={{...getStripedStyle(index)}}>
-                                   <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
-                                   <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
-                                   <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>
-                                   <TableCell className={classes.cellOne}>{formatCurrency(ownRow.amount)}</TableCell>
-                                   <TableCell className={classes.cellOne}>{ownRow.capital_pct.toFixed(2)+"%"}</TableCell>
-                                 </TableRow>
+
+                           <TableRow  key = {index}>
+                                     <TableCell colSpan = '6' >
+                                                 <OwnershipRowEx key = {index} index = {index} ownRow={ownRow} />
+                                                 {}
+                                     </TableCell>
+                           </TableRow>
+
+
+
+
+
+
+
                                );
-                            })}
+                            })
+                      }
 
 
 

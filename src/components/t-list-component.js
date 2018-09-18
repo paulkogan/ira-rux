@@ -38,13 +38,13 @@ const styles = {
              width: '100%',
              tableLayout: "auto",
               border: '2px solid black',
-              padding: 0,
+              padding: '0px 0px',
           },
 
           cellOne: {
             border: '0px solid blue',
             textAlign: 'left',
-            padding: '0px 0px',
+            padding: '0px 5px',
             textAlign: 'center'
         	},
 
@@ -72,8 +72,6 @@ class TransListComponent extends Component {
 
 
 
-
-
 render() {
   const { classes } = this.props;
   //const {id, investor_name, investment_name, passthru_name, tt_name, t_wired_date, t_amount} = this.props.transactions;
@@ -84,14 +82,14 @@ render() {
 
             <Table className={classes.table}>
                     <colgroup>
-                        <col width="5%" />
+                        <col width="3%" />
                         <col width="15%" />
-                        <col width="20%" />
-                        <col width="15%" />
-                        <col width="13%" />
                         <col width="15%" />
                         <col width="10%" />
-                        <col width="2%" />
+                        <col width="10%" />
+                        <col width="15%" />
+                        <col width="10%" />
+                        <col width="15%" />
                     </colgroup>
 
 
@@ -106,24 +104,24 @@ render() {
                                   <TableCell className={classes.cellTwo}>Trans. Type</TableCell>
                                   <TableCell className={classes.cellTwo}>Date</TableCell>
                                   <TableCell className={classes.cellTwo}>Amt.</TableCell>
-                                  <TableCell className={classes.cellTwo}>&nbsp;</TableCell>
+                                  <TableCell className={classes.cellTwo}>Notes</TableCell>
                         </TableRow>
                       </TableHead>
 
 
-
+ 
                   <TableBody >
                        {this.props.transactions.map((trans,index) => {
                          return (
                                  <TableRow key={index} style={{...getStripedStyle(index)}}>
                                          <TableCell className={classes.cellOne}>{trans.id}</TableCell>
                                          <TableCell className={classes.cellOne}>{trans.investor_name.slice(0,20)}</TableCell>
-                                         <TableCell className={classes.cellOne}>{trans.investment_name} </TableCell>
-                                         <TableCell className={classes.cellOne}>{trans.passthru_name} </TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.investment_name ? trans.investment_name.slice(0,15) : " "} </TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.passthru_name ? trans.passthru_name.slice(0,12) : " "} </TableCell>
                                          <TableCell className={classes.cellOne}>{trans.tt_name} </TableCell>
                                          <TableCell className={classes.cellOne}>{trans.t_wired_date} </TableCell>
                                          <TableCell className={classes.cellOne}>{formatCurrency(trans.t_amount)}</TableCell>
-                                         <TableCell className={classes.cellOne}>&nbsp;</TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.t_notes ? trans.t_notes.slice(0,15) : " "}</TableCell>
                                  </TableRow>
                                );
                             })}

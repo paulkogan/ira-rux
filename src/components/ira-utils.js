@@ -3,11 +3,9 @@ import React, {Component} from 'react';
 
 
 
-
-
 export function getVersion() {
 
-          return "3.6 +Standard Components with CSS +AppBar menu "
+          return "3.7 +Trans Notes +Ownership Transactions v.1 "
 
 }
 
