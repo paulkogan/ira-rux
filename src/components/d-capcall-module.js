@@ -37,6 +37,13 @@ const styles = {
               background: '#99a6b2',
           },
 
+
+          shortRow : {
+              height: 24
+          },
+
+
+
           cellOne: {
             textAlign: 'left',
             padding: '0px 20px',
@@ -109,8 +116,20 @@ render() {
   //   </div>
   //
   // )
-  //
+  //                            <TableCell colSpan="6" style={{fontSize: 24, color: 'black', padding: 0, textAlign: 'center'}}>
 
+
+  // <AppBar position="static">
+  //     <Toolbar>
+  //                 <Typography variant="title" color="inherit">
+  //                               Capital Call : {cc_name}
+  //                 </Typography>
+  //     </Toolbar>
+  // </AppBar>
+
+
+
+//className="short-row"
 
   return (
     <div>
@@ -127,18 +146,9 @@ render() {
 
 
                       <TableHead>
-                        <TableRow>
-                          <TableCell colSpan="6" style={{fontSize: 24, color: 'black', padding: 0, textAlign: 'center'}}>
-
-                                         <AppBar position="static">
-                                             <Toolbar>
-                                                         <Typography variant="title" color="inherit">
-                                                                       Capital Call : {cc_name}
-                                                         </Typography>
-                                             </Toolbar>
-                                         </AppBar>
-
-
+                        <TableRow className="short-row">
+                          <TableCell colSpan="6" className="component-title">
+                                  Capital Call : {cc_name}
                           </TableCell>
                         </TableRow>
                       </TableHead>
@@ -204,8 +214,6 @@ render() {
 CapCallModule.propTypes = {
   classes: PropTypes.object.isRequired
 };
-
-
 
 
 

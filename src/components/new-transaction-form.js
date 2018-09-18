@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import EntitiesPulldown from './entities-pulldown'
-import {formatCurrency, getAPI_endpoint} from './ira-utils';
-const apiHost = getAPI_endpoint()
+import {formatCurrency, get_endpoint} from './ira-utils';
+const apiHost = get_endpoint('API')
 
 
 const sampleNewTrans = {
@@ -180,7 +180,7 @@ handleFormSubmit(event) {
                         <input type="text" name="notes" value={this.state.notes} onChange={this.onChange} />
                       </label>
                       <br/>
-                      <input type="submit" value="Submit" />
+                      <input className="nt-button" type="submit" value="Submit" />
                     </form>
             </div>
 

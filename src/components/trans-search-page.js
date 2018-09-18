@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 //import TransList from './t-list';
 import TransSearchBar from './t-search-bar';
 import TransListComponent from './t-list-component'
-import {formatCurrency, getAPI_endpoint} from './ira-utils';
-const apiHost = getAPI_endpoint()
+import {formatCurrency, get_endpoint} from './ira-utils';
+const apiHost = get_endpoint('API')
 
 
 class TransSearchPage extends Component {

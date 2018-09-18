@@ -27,7 +27,7 @@ const styles = {
           root : {
             width: '100%',
             marginTop: 30,
-            fontSize: 48
+            fontSize: 12
           },
 
           table : {
@@ -62,8 +62,6 @@ const styles = {
         	},
 
 
-
-
           cellTotal: {
             border: '3px solid white',
             padding: '0px 20px',
@@ -82,14 +80,6 @@ class FinancialsComponent extends Component {
       constructor (props) {
           super(props)
 
-     }
-
-
-getStripedStyle(index) {
-       //console.log("Index is "+index)
-       return {
-         background: index % 2 ? 'lightslategrey' : 'lightsteelblue'
-       };
      }
 
 
@@ -113,22 +103,11 @@ render() {
 
 
 
+
                       <TableHead>
-                        <TableRow>
-                          <TableCell colSpan="6" style={{fontSize: 24, color: 'black', padding: 0, textAlign: 'center'}}>
-
-
-                                         <AppBar position="static">
-                                             <Toolbar>
-                                                         <Typography variant="title" color="inherit">
+                        <TableRow className="short-row">
+                          <TableCell colSpan="6" className="component-title">
                                                                        Financial Information for {name}
-                                                         </Typography>
-                                             </Toolbar>
-                                         </AppBar>
-
-
-
-
 
                           </TableCell>
                         </TableRow>
@@ -137,10 +116,6 @@ render() {
 
 
                   <TableBody >
-
-
-
-
                            <TableRow >
                              <TableCell className={classes.cellTwo}>Properties Value:</TableCell>
                              <TableCell className={classes.cellOne} >{formatCurrency(aggregate_value)}  </TableCell>
@@ -179,8 +154,6 @@ render() {
                              <TableCell > &nbsp; </TableCell>
                              <TableCell > &nbsp; </TableCell>
                            </TableRow>
-
-
 
 
                            <TableRow >

@@ -29,7 +29,8 @@ const styles = {
           },
 
           shortRow : {
-              height: 30
+              height: 30,
+
           },
 
 
@@ -44,7 +45,7 @@ const styles = {
             border: '0px solid blue',
             textAlign: 'left',
             padding: '0px 0px',
-            textAlign: 'center',
+            textAlign: 'center'
         	},
 
         	cellTwo: {

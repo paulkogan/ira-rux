@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 
 
+
+
+
+
 export function getVersion() {
 
-          return "3.3 +Portfolio Page"
+          return "3.6 +Standard Components with CSS +AppBar menu "
 
 }
 
@@ -14,8 +18,8 @@ export function getStripedStyle(index) {
          background: index % 2 ? '#99a6b2' : 'lightsteelblue'
        };
      }
-
-
+//
+//lightblue
 
 
 export function formatCurrency (amount) {
@@ -29,16 +33,31 @@ export function formatCurrency (amount) {
 } //function
 
 
-export function getAPI_endpoint() {
+export function get_endpoint(type) {
           //let current_ENV = process.env.NODE_ENV;
 
-        let current_ENV = 'dev';
+        let current_ENV = 'production';
       //let current_ENV = 'development';
 
-        if (current_ENV  === 'production')  {
-                 return "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
-        } else {
-                 return "http://localhost:8081"
-        }
+      if (type == 'API') {
+
+                  if (current_ENV  === 'production')  {
+                           return "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
+                  } else {
+                           return "http://localhost:8081"
+                  }
+      }
+
+      if (type == 'image') {
+
+                  if (current_ENV  === 'production')  {
+                           return "http://ira-rux-03.s3-website.us-east-2.amazonaws.com"
+                  } else {
+                           return "http://localhost:8080"
+                  }
+      }
+
+
+
 
 } //function

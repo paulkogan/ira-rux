@@ -1,21 +1,2 @@
 
-@import "./base";
-@import "./centerbox";
-
-@media (max-width: 10px) {
-      * {
-            color: white;
-        }
-     .add-option {
-        flex-direction: row;
-
-     }
-
-}
-
-.add-option {
-  display: flex;
-  flex-direction: column;
-  padding: 20px
-
-}
+@import "./ira-head";

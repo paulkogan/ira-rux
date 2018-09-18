@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 
 
 const HomePage = () => (
-        <div>
+        <div className="center_container">
             <NavLink to="/transactions" className="head-links" activeClassName="is-active"> Transactions </NavLink>
               <br />
             <NavLink to="/deals" className="head-links" activeClassName="is-active"> Deals </NavLink>

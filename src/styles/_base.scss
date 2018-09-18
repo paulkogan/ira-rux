@@ -1,3 +1,26 @@
+
+@media (max-width: 10px) {
+      * {
+            color: white;
+        }
+     .add-option {
+        flex-direction: row;
+
+     }
+
+}
+
+.add-option {
+  display: flex;
+  flex-direction: column;
+  padding: 20px
+
+}
+
+
+
+
+
 body {
     font-family: Tahoma, Georgia, Arial, sans-serif;
     background: lightslategrey;
@@ -53,6 +76,25 @@ button:focus {
 }
 
 
+.center-box {
+    align-items:center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+
+
+}
+
+.loader__image {
+     height: 30px;
+     width: 30px;
+
+}
+
+
+
+
 .search-bar {
     text-align: left;
     margin-left: 0px;
@@ -98,13 +140,15 @@ button:focus {
 
 .div-border {
     border-style: solid;
-    border-width: 3px !important;
+    border-width: 3px;
     padding-top: 20px;
     padding-right: 10px;
     padding-bottom: 20px;
     padding-left: 10px;
     border-color: black;
 }
+
+
 
 .div-border-thin {
     border-style: solid;
@@ -147,14 +191,7 @@ button:focus {
 }
 
 
-.div-border {
-    border-style: solid;
-    border-width: 5px;
-    padding-top: 20px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    padding-left: 10px;
-}
+
 
 .exp-total {
     padding-bottom: 10px;

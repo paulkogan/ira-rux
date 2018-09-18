@@ -1,0 +1,196 @@
+body {
+    font-family: Roboto, Tahoma, Georgia, Arial, sans-serif;
+    background: lightslategrey;
+    color: black;
+    font-size: 16px;
+}
+
+
+button {
+      color: slategrey;
+      cursor: pointer;
+
+}
+
+button:focus {
+  outline:0;
+}
+
+
+
+
+
+
+.header {
+  background: #172226;
+  color: white;
+  margin-bottom: 0px;
+  padding: 0px 0px;
+  margin-left: 0px;
+
+}
+
+
+.center_container {
+  max-width: 700px;
+  margin: 0 auto;
+
+}
+
+
+.head-links{
+      margin-left: 30px;
+      //font-weight: bold;
+      //color: blue;
+}
+
+
+.is-active{
+      margin-left:  16px;
+      color: white !important;
+      text-decoration:none;
+}
+
+
+
+.nt-button {
+    background: lightsteelblue;
+    border: none;
+    border-bottom: 2px solid darken(black, 20%);
+    border-right: 2px solid darken(black, 20%);
+    margin-bottom: 4px;
+    color: black;
+    font-size: 14px;
+    font-weight: 300;
+    height: 30px;
+    width: 200px;
+    border-radius:5px;
+    cursor: pointer;
+
+}
+
+.nt-button:hover {
+    background-color: darkslategrey;
+    color: white;
+}
+
+
+.nt-button:active {
+    background: red;
+    border-bottom: none;
+    border-right: none;
+    color:white;
+    cursor:pointer;
+    outline:none;
+    box-shadow: inset 3px 3px 3px navy;
+}
+
+.nt-button:focus {
+  outline:0;
+}
+
+
+.div-border {
+    border-style: solid;
+    border-width: 3px;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    border-color: black;
+}
+
+
+a {
+      color: lightsteelblue;
+      text-decoration: underline;
+}
+
+/* visited link */
+a:visited {
+    color: lightsteelblue;
+    text-decoration: underline;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: red;
+}
+
+
+
+.search-bar {
+    text-align: left;
+    margin-left: 0px;
+}
+
+
+.pick-list {
+    list-style: none;
+    text-align: center;
+    margin-left: 100px;
+    position: absolute;
+    z-index:99;
+    cursor: pointer;
+}
+
+.pick-list-item {
+    text-align: left;
+    background: white;
+    color: darkblue;
+    height: 30px;
+    width: 400px;
+    margin-top: 0px;
+    margin-left: 30px;
+    padding-left: 20px;
+    border: 1px solid lightblue;
+    border-radius: 3px;
+
+}
+
+.pick-list-item:hover{
+    text-align: left;
+    background: lightsteelblue;
+    color: darkblue;
+    height: 30px;
+    width: 400px;
+    margin-top: 0px;
+    margin-left: 30px;
+    padding-left: 20px;
+    border: 1px solid lightblue;
+    border-radius: 3px;
+}
+
+
+
+.pick-list-item:active {
+    text-align: left;
+    background: lightsteelblue;
+    color: red;
+    height: 30px;
+    width: 400px;
+    margin-top: 0px;
+    margin-left: 30px;
+    padding-left: 20px;
+    border: 1px solid lightblue;
+    border-radius: 3px;
+}
+
+.short-row  {
+    height: 32px !important;
+}
+
+
+.component-title {
+      font-size: 18px !important;
+      color: white !important;
+      padding: 0;
+      text-align: center !important;
+      background: #004d99;
+      height: 24px !important;
+}

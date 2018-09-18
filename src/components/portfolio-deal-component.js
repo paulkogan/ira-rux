@@ -20,6 +20,7 @@ import TransListComponent from './t-list-component'
 import {formatCurrency, getStripedStyle} from './ira-utils'
 //import 'typeface-roboto'
 
+//const topbarColor = '#004d99'  //lighter version of #003366
 
 const styles = {
 
@@ -38,12 +39,9 @@ const styles = {
               height: 30
           },
 
-          shortRow : {
-              height: 32
-          },
-
-
-
+          // shortRow : {
+          //     height: 32
+          // },
 
 
           cellOne: {
@@ -80,13 +78,13 @@ const styles = {
             color: 'black'
           },
 
-          cellTitle: {
-                fontSize: 24,
-                color: 'lightsteelblue',
-                padding: 0,
-                textAlign: 'center',
-                background: '#002080',
-          }
+          // cellTitle: {
+          //       fontSize: 18,
+          //       color: 'white',
+          //       padding: 0,
+          //       textAlign: 'center',
+          //       background: topbarColor,
+          // }
 
 
 };
@@ -106,8 +104,6 @@ render() {
   const { classes, deal } = this.props;
 
 
-
-
   return (
     <div>
             <Table className={classes.table}>
@@ -122,9 +118,9 @@ render() {
 
 
 
-                      <TableHead>
-                        <TableRow className={classes.shortRow}>
-                          <TableCell colSpan="6" className={classes.cellTitle}>
+                    <TableHead>
+                      <TableRow className="short-row">
+                        <TableCell colSpan="6" className="component-title">
 
                                       Investment : {deal.investment_name}
 
@@ -164,16 +160,6 @@ render() {
                               <TableCell > &nbsp; </TableCell>
                             </TableRow>
 
-                      {
-                      //       Estimated Valuation:
-                      // Investor's Total Investment: 		$1,600,000
-                      // Investor's Deal Interest: 		16%
-                      //
-                      // Total Asssets: 		$24,550,000
-                      // In-Place Debt: 		$5,925,000
-                      // Deal Equity Valuation: 		$18,625,000
-                      // Investor's Potential Unrealized Deal Equity: 		$2,980,000
-                    }
 
 
                           <TableRow className={classes.shortRow}>

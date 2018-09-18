@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import PortfolioDealComponent from './portfolio-deal-component';
 
 
-import {formatCurrency, getAPI_endpoint} from './ira-utils';
+import {formatCurrency, get_endpoint} from './ira-utils';
 
-const apiHost = getAPI_endpoint()
+const apiHost = get_endpoint('API')
 
 
 class PortfolioPage extends Component {
@@ -55,8 +55,6 @@ async componentDidMount ()  {
                     totalPortfolioValue : data[2],
                     totalDistributions :  data[3]*-1
              }))
-
-
   } //CDM
 
 
@@ -70,7 +68,7 @@ async componentDidMount ()  {
                                 deal={deal}
                                 key = {deal.id}
                       />
-            
+
                )
 
          });

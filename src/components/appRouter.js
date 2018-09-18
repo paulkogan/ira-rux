@@ -9,7 +9,7 @@ import InvestorsListPage, {} from "./investors-list-page"
 import DealDetailsPage, {} from "./deal-details-page"
 import PortfolioPage, {} from "./portfolio-page"
 import NewTransactionForm, {} from "./new-transaction-form"
-
+import TopAppBar, {} from "./appBar-top"
 
 const notFoundPage = () => {
       return (
@@ -38,6 +38,7 @@ const AppRouter = () => (
               <Route path = "/dealdetails/:id" component = {DealDetailsPage} />
               <Route path = "/portfolio/:id" component = {PortfolioPage} />
               <Route path = "/newtrans" component = {NewTransactionForm} />
+              <Route path = "/appbar" component = {TopAppBar} />
               <Route component = {notFoundPage} />
           </Switch>
           </div>

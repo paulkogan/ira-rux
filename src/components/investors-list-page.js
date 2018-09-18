@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import DealsList from './deals-list'
 import InvestorsList from './investors-list'
 
-import {formatCurrency, getAPI_endpoint} from './ira-utils';
-const apiHost = getAPI_endpoint()
+import {formatCurrency, get_endpoint} from './ira-utils';
+const apiHost = get_endpoint('API')
 
 
 

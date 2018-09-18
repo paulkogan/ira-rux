@@ -4,8 +4,8 @@ import DealFinancialsComponent from './d-financials-component'
 import OwnershipComponent from './d-ownership-component'
 import CapCallsComponent from './d-capcalls-component'
 
-import {formatCurrency, getAPI_endpoint} from './ira-utils';
-const apiHost = getAPI_endpoint()
+import {formatCurrency, get_endpoint} from './ira-utils';
+const apiHost = get_endpoint('API')
 
 
 class DealDetailsPage extends Component {
@@ -60,7 +60,10 @@ async componentDidMount ()  {
   render() {
         return (
                           <div>
-                                <DealFinancialsComponent  entityID = {this.state.target_entity_id} dealFinancials = {this.state.deal_financials} />
+                                <DealFinancialsComponent
+                                        entityID = {this.state.target_entity_id}
+                                        dealFinancials = {this.state.deal_financials}
+                                />
                                 <br />
 
                                 {(this.state.deal_ownership.length >0) && <OwnershipComponent

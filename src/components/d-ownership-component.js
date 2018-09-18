@@ -14,12 +14,14 @@ import TableCell from '@material-ui/core/TableCell';
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-
+import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 import {formatCurrency, getStripedStyle} from './ira-utils'
 //import 'typeface-roboto'
 
+
+const topbarColor = '#004d99'  //lighter version of #003366
 
 const styles = {
 
@@ -36,6 +38,12 @@ const styles = {
               background: '#99a6b2'
           },
 
+
+          shortRow : {
+              height: 32
+          },
+
+
           cellOne: {
             border: '0px solid blue',
             textAlign: 'left',
@@ -50,6 +58,15 @@ const styles = {
             fontWeight: 600,
             color: 'black'
         	},
+
+          cellTitle: {
+                fontSize: 18,
+                color: 'white',
+                padding: 0,
+                textAlign: 'center',
+                background: topbarColor,
+          }
+
 
 };
 
@@ -69,6 +86,7 @@ render() {
   const { classes } = this.props;
 
   //<Table
+  //style={{fontSize: 24, padding: 0, color: 'black', textAlign: 'center'}}
 
   return (
 
@@ -83,20 +101,14 @@ render() {
                     </colgroup>
 
 
-                      <TableHead>
-                        <TableRow>
-                          <TableCell colSpan="6" style={{fontSize: 24, padding: 0, color: 'black', textAlign: 'center'}}>
+                    <TableHead>
+                      <TableRow className="short-row">
+                        <TableCell colSpan="6" className="component-title">
 
-                            <AppBar position="static">
-                                <Toolbar>
-                                            <Typography variant="title" color="inherit">
-                                                                    Ownership Information
-                                            </Typography>
-                                </Toolbar>
-                            </AppBar>
+                                    Ownership Information
 
-                          </TableCell>
-                        </TableRow>
+                        </TableCell>
+                      </TableRow>
 
                         <TableRow >
                                   <TableCell colSpan="2" className={classes.cellTwo}>Investor</TableCell>
@@ -124,24 +136,25 @@ render() {
                                );
                             })}
 
-                            <TableRow >
-                              <TableCell></TableCell>
-                              <TableCell > Totals:</TableCell>
-                              <TableCell></TableCell>
-                              <TableCell></TableCell>
-                              <TableCell className={classes.cellTwo} >{formatCurrency(this.props.ownTotals.totalCapital)}</TableCell>
-                              <TableCell>{this.props.ownTotals.totalCapitalPct}%</TableCell>
+
+
+
+                           <TableRow className={classes.shortRow}>
+                                    <TableCell colSpan="6">&nbsp; </TableCell>
                             </TableRow>
 
 
 
+                            <TableRow >
+                              <TableCell>  </TableCell>
+                              <TableCell> Totals:</TableCell>
+                              <TableCell> </TableCell>
+                              <TableCell> </TableCell>
+                              <TableCell className={classes.cellTwo} >{formatCurrency(this.props.ownTotals.totalCapital)}</TableCell>
+                              <TableCell>{this.props.ownTotals.totalCapitalPct}%</TableCell>
+                            </TableRow>
                       </TableBody>
-
                     </Table>
-
-
-
-
 
      ) //return
   } //render
