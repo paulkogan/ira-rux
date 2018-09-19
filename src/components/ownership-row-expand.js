@@ -17,6 +17,16 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Hamburger from '@material-ui/icons/Menu';
+
+
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+
+
+
 import {formatCurrency, getStripedStyle} from './ira-utils'
 import TransListComponent from './t-list-component'
 //import 'typeface-roboto'
@@ -91,45 +101,43 @@ class OwnershipRowEx extends Component {
 
 
 
-                         return (
+return (
+        <div>
+            <ExpansionPanel >
+                      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                            <Table className={classes.table} >
+                                        <colgroup>
+                                            <col width="10%" />
+                                            <col width="5%" />
+                                            <col width="30%" />
+                                            <col width="30%" />
+                                            <col width="20%" />
+                                            <col width="5%" />
+                                        </colgroup>
 
+                                         <TableBody >
+                                            <TableRow >
 
-                 <Table className={classes.table} key={index}>
-                         <colgroup>
-                             <col width="10%" />
-                             <col width="5%" />
-                             <col width="30%" />
-                             <col width="30%" />
-                             <col width="20%" />
-                             <col width="5%" />
-                         </colgroup>
+                                                  <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
+                                                  <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
+                                                  <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>
+                                                  <TableCell className={classes.cellOne}>{formatCurrency(ownRow.amount)}</TableCell>
+                                                  <TableCell className={classes.cellOne}>{ownRow.capital_pct.toFixed(2)+"%"}</TableCell>
 
-                            <TableBody >
+                                            </TableRow>
+                                        </TableBody>
+                            </Table>
+                    </ExpansionPanelSummary>
 
-                                 <TableRow >
-                                   <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
-                                   <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
-                                   <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>
-                                   <TableCell className={classes.cellOne}>{formatCurrency(ownRow.amount)}</TableCell>
-                                   <TableCell className={classes.cellOne}>{ownRow.capital_pct.toFixed(2)+"%"}</TableCell>
-                                 </TableRow>
+                    <ExpansionPanelDetails>
+                              <TransListComponent transactions = {ownRow.transactions}/>
+                    </ExpansionPanelDetails>
 
-                                 <TableRow >
-                                           <TableCell colSpan = '6' >
-                                                  <TransListComponent transactions = {ownRow.transactions}/>
-                                           </TableCell>
-                                 </TableRow>
+              </ExpansionPanel>
+          </div>
+  );
 
-                       </TableBody>
-                    </Table>
-
-
-
-
-
-                               );
-
-                } //render
+} //render
 
 
 } //component
@@ -141,3 +149,36 @@ OwnershipRowEx.propTypes = {
 
 
 export default withStyles(styles)(OwnershipRowEx)
+
+//no panel
+// <Table className={classes.table} key={index}>
+//     <colgroup>
+//         <col width="10%" />
+//         <col width="5%" />
+//         <col width="30%" />
+//         <col width="30%" />
+//         <col width="20%" />
+//         <col width="5%" />
+//     </colgroup>
+//
+//      <TableBody >
+//
+//
+//                                <TableRow >
+//                                  <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
+//                                  <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
+//                                  <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>
+//                                  <TableCell className={classes.cellOne}>{formatCurrency(ownRow.amount)}</TableCell>
+//                                  <TableCell className={classes.cellOne}>{ownRow.capital_pct.toFixed(2)+"%"}</TableCell>
+//                                </TableRow>
+//
+//                                <TableRow >
+//                                          <TableCell colSpan = '6' >
+//                                                 <TransListComponent transactions = {ownRow.transactions}/>
+//                                          </TableCell>
+//                                </TableRow>
+//
+//        </TableBody>
+//     </Table>
+//
+        //

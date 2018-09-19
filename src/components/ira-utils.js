@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.7 +Trans Notes +Ownership Transactions v.1 "
+          return "3.8 +Ownership Transactions with Expansion "
 
 }
 
