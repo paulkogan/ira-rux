@@ -32,21 +32,29 @@ import TransListComponent from './t-list-component'
 //import 'typeface-roboto'
 
 
-const topbarColor = '#004d99'  //lighter version of #003366
+//const topbarColor = '#004d99'  //lighter version of #003366
 
 const styles = {
 
           root : {
             width: '100%',
-            marginTop: 30,
+            marginTop: 0,
+            padding: 0,
           },
+
 
           table : {
              width: '100%',
              tableLayout: "auto",
-              border: '3px solid black',
+              border: '0px solid black',
               padding: 0,
               background: '#99a6b2'
+          },
+
+          panel : {
+            width: '100%',
+            margin: 0,
+            padding: 0,
           },
 
 
@@ -70,13 +78,13 @@ const styles = {
             color: 'black'
         	},
 
-          cellTitle: {
-                fontSize: 18,
-                color: 'white',
-                padding: 0,
-                textAlign: 'center',
-                background: topbarColor,
-          }
+          // cellTitle: {
+          //       fontSize: 18,
+          //       color: 'white',
+          //       padding: 0,
+          //       textAlign: 'center',
+          //       background: topbarColor,
+          // }
 
 
 };
@@ -95,30 +103,34 @@ class OwnershipRowEx extends Component {
 
 // Transactions:
 // <TransListComponent transactions = {ownRow.transactions}/>
+//  expandIcon={<ExpandMoreIcon />}
 
      render() {
             const { classes, ownRow, index } = this.props;
 
 
-
 return (
-        <div>
-            <ExpansionPanel >
-                      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+
+            <ExpansionPanel className={classes.panel}>
+                      <ExpansionPanelSummary
+                                  className={classes.table}
+                                  expandIcon={<ExpandMoreIcon />}
+
+                      >
                             <Table className={classes.table} >
                                         <colgroup>
-                                            <col width="10%" />
-                                            <col width="5%" />
-                                            <col width="30%" />
-                                            <col width="30%" />
                                             <col width="20%" />
+                                            <col width="20%" />
+                                            <col width="20%" />
+                                            <col width="15%" />
+                                            <col width="15%" />
                                             <col width="5%" />
                                         </colgroup>
 
                                          <TableBody >
                                             <TableRow >
 
-                                                  <TableCell colSpan="2" className={classes.cellOne}>{ownRow.investor_name}</TableCell>
+                                                  <TableCell className={classes.cellOne}>{ownRow.investor_name}</TableCell>
                                                   <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
                                                   <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>
                                                   <TableCell className={classes.cellOne}>{formatCurrency(ownRow.amount)}</TableCell>
@@ -129,12 +141,12 @@ return (
                             </Table>
                     </ExpansionPanelSummary>
 
-                    <ExpansionPanelDetails>
+                    <ExpansionPanelDetails  className={classes.panel}>
                               <TransListComponent transactions = {ownRow.transactions}/>
                     </ExpansionPanelDetails>
 
               </ExpansionPanel>
-          </div>
+
   );
 
 } //render

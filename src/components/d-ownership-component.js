@@ -98,12 +98,12 @@ render() {
 
             <Table className={classes.table}>
                     <colgroup>
-                        <col width="10%" />
-                        <col width="5%" />
-                        <col width="30%" />
-                        <col width="30%" />
-                        <col width="20%" />
-                        <col width="5%" />
+                            <col width="5%" />
+                            <col width="10%" />
+                            <col width="20%" />
+                            <col width="20%" />
+                            <col width="15%" />
+                            <col width="15%" />
                     </colgroup>
 
 
@@ -116,12 +116,14 @@ render() {
                         </TableCell>
                       </TableRow>
 
-                        <TableRow >
-                                  <TableCell colSpan="2" className={classes.cellTwo}>Investor</TableCell>
+                        <TableRow className="short-row">
+                                  <TableCell className={classes.cellTwo}> </TableCell>
+                                  <TableCell className={classes.cellTwo}>Investor</TableCell>
                                   <TableCell className={classes.cellTwo}>Investment</TableCell>
                                   <TableCell className={classes.cellTwo}>Date</TableCell>
                                   <TableCell className={classes.cellTwo}>Amt.</TableCell>
                                   <TableCell className={classes.cellTwo}>Percent</TableCell>
+
                         </TableRow>
                       </TableHead>
 
@@ -136,7 +138,6 @@ render() {
                            <TableRow  key = {index}>
                                      <TableCell colSpan = '6' >
                                                  <OwnershipRowEx key = {index} index = {index} ownRow={ownRow} />
-                                                 {}
                                      </TableCell>
                            </TableRow>
 
