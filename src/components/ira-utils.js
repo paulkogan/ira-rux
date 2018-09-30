@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.9 +Ownership Transactions with Expansion "
+          return "3.10 +Ownership Transactions with Expansion "
 
 }
 

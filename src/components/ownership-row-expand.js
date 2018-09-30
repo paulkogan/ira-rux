@@ -57,6 +57,10 @@ const styles = {
             padding: 0,
           },
 
+          icon: {
+               fill: 'white',
+            },
+
 
           shortRow : {
               height: 32
@@ -114,7 +118,7 @@ return (
             <ExpansionPanel className={classes.panel}>
                       <ExpansionPanelSummary
                                   className={classes.table}
-                                  expandIcon={<ExpandMoreIcon />}
+                                  expandIcon={<ExpandMoreIcon className={classes.icon}/>}
 
                       >
                             <Table className={classes.table} >

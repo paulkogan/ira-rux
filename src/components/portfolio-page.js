@@ -68,9 +68,7 @@ async componentDidMount ()  {
                                 deal={deal}
                                 key = {deal.id}
                       />
-
                )
-
          });
 
 
