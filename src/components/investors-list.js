@@ -1,46 +1,67 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
-//<li className="list-group-item">
-//{<a href = '/dealdetails/'+dealResult.id>{dealResult.name}+</a>}
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
-const InvestorItem = (props) => {
-      const {investorResult} = props;
-      //console.log("DealResult is "+JSON.stringify(dealResult))
-      const investorLink = "/portfolio/"+ investorResult.id
-      return (
-
-                <div>
-                      <Link to={investorLink }> {investorResult.id+".  "} {investorResult.name} </Link>
-                      <br/>
-                </div>
-
-      )
-
-}
 
 
 //component get props
 const InvestorsList = (props) => {
   //create list of displayable Investoractions
-  const displayInvestors = props.investorsResults.map(  (investorResult) => {
+  const investorListItems= props.investorsResults.map(  (investorResult) => {
+        const investorLink = "/portfolio/"+ investorResult.id
         return (
-            <InvestorItem
-                investorResult = {investorResult}
-                key = {investorResult.id}
-            />
+          <div  key = {investorResult.id}>
+            <ListItem button component="a" href={investorLink}  className="listButton">
+              <ListItemText primary={"> "+investorResult.name}  />
+            </ListItem>
+            <Divider />
+          </div>
+
         )
   });
 
 
 
 return (
-        <div>
-          <ul>
-              {displayInvestors}
-          </ul>
+        <div className="list-style">
+        <center><b>INVESTORS</b></center>
+                <List component="nav">
+                        {investorListItems}
+                </List>
+
         </div>
 
       )
 }
 
 export default InvestorsList;
+
+
+
+// <InvestorItem
+//     investorResult = {investorResult}
+//     key = {investorResult.id}
+// />
+
+
+
+// const InvestorItem = (props) => {
+//       const {investorResult} = props;
+//       //console.log("DealResult is "+JSON.stringify(dealResult))
+//       const investorLink = "/portfolio/"+ investorResult.id
+//       return (
+//
+//                 <div>
+//                       <Link to={investorLink }> {investorResult.id+".  "}
+//                               {investorResult.name}
+//                       </Link>
+//                       <br/>
+//                 </div>
+//
+//       )
+//
+// }

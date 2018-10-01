@@ -33,15 +33,40 @@ const styles = {
   root: {
     flexGrow: 1,
   },
+
   headline: {
     flexGrow: 1,
-    fontSize: 18,
+    fontSize: 24,
+    display: 'block',
+    border: '0px solid lightblue',
   },
+
+  subHeadline: {
+    flexGrow: 1,
+    fontSize: 12,
+    fontWeight: 100,
+    color: 'lightslategrey'
+  },
+
+  show: {
+    border: '0px solid lightblue',
+  },
+
+
+  manSplain: {
+    border: '0px solid lightblue',
+    width: '100%'
+  },
+
+
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
   },
 };
+
+
+
 
 class TopAppBar extends React.Component {
 
@@ -104,8 +129,9 @@ class TopAppBar extends React.Component {
     return (
       <div className={classes.root}>
 
-        <AppBar position="static" >
-          <Toolbar>
+        <AppBar position="static">
+
+          <Toolbar className={classes.show}>
 
 
           <Menu
@@ -152,14 +178,19 @@ class TopAppBar extends React.Component {
                         <img width="70" src={imageRoot+'/static/GP_Prop_logo_1.png'}/>
             </div>
 
+              <div className={classes.manSplain}>
+                      <Typography variant="title" color="inherit" className={classes.headline}>
+                          &nbsp;IRA rUX
+                     </Typography>
+                     <div className={classes.subHeadline}>
+                               &nbsp;&nbsp;{getVersion()}
+                     </div>
+              </div>
 
 
-            <Typography variant="title" color="inherit" className={classes.headline}>
-              &nbsp;&nbsp;&nbsp;IRA Mobile -- {getVersion()}
-            </Typography>
 
             {auth && (
-              <div>
+              <div className={classes.show}>
                         <IconButton
                           color="inherit"
                         >
@@ -171,6 +202,7 @@ class TopAppBar extends React.Component {
 
 
           </Toolbar>
+
         </AppBar>
       </div>
     );
@@ -186,10 +218,21 @@ TopAppBar.propTypes = {
 
 export default withRouter(withStyles(styles)(TopAppBar));
 
+// <Typography variant="title" color="inherit" className={classes.headline}>
+//       &nbsp;&nbsp;&nbsp;IRA rUX
+// </Typography>
+// <br/><br/>
+// <Typography  variant="subheading" color="inherit" className={classes.subHeadline}>
+//   {getVersion()}
+// </Typography>
 
 
 
 
+// <Typography variant="title" color="inherit" className={classes.headline}>
+//   &nbsp;&nbsp;&nbsp;IRA rUX
+// </Typography>
+//
 
 
 

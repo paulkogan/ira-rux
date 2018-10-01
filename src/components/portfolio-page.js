@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import PortfolioDealComponent from './portfolio-deal-component';
-
-
+import PortfolioSummaryComponent from './portfolio-summary-component';
 import {formatCurrency, get_endpoint} from './ira-utils';
 
 const apiHost = get_endpoint('API')
@@ -33,10 +32,6 @@ class PortfolioPage extends Component {
 
 
 
-
-
-
-
 async componentDidMount ()  {
 
         //get entity id from route props (nid) or from URL param
@@ -49,24 +44,35 @@ async componentDidMount ()  {
 
           fetch(fetchURL_portfolio)
            .then(results => results.json())
-           .then(data => this.setState({
+           .then(data => {
+                  this.setState({
                     portfolioDeals:  data[0],
                     totalInvestmentValue: data[1],
                     totalPortfolioValue : data[2],
-                    totalDistributions :  data[3]*-1
-             }))
+                    totalDistributions :  data[3]*-1,
+                    investorName: data[0][0].investor_name
+                  })
+                  //console.log("One Deal "+ JSON.stringify(data[0][0]));
+           })
+
+
+
   } //CDM
 
 
 
   render() {
+        let dealsArray = this.state.portfolioDeals;
+        let firstDeal = dealsArray[0]
+        console.log(typeof firstDeal);
 
-        const displayDealsList = this.state.portfolioDeals.map((deal) => {
+        const displayDealsList = this.state.portfolioDeals.map((deal, index) => {
                return (
 
                       <PortfolioDealComponent
                                 deal={deal}
                                 key = {deal.id}
+                                index = {index+1}
                       />
                )
          });
@@ -76,12 +82,13 @@ async componentDidMount ()  {
 
         return (
                           <div>
-
-                              {"totalInvestmentValue:  "+formatCurrency(this.state.totalInvestmentValue)}
-                              <br/><br/>
-                              {"totalPortfolioValue:  "+formatCurrency(this.state.totalPortfolioValue)}
-                              <br/><br/>
-                              {"Tot.Distributions:  "+formatCurrency(this.state.totalDistributions)}
+                            <PortfolioSummaryComponent
+                                  numberOfDeals={this.state.portfolioDeals.length}
+                                  totalInvestmentValue = {this.state.totalInvestmentValue}
+                                  totalPortfolioValue = {this.state.totalPortfolioValue}
+                                  totalDistributions = {this.state.totalDistributions}
+                                  investorName = {this.state.investorName}
+                            />
                               <br/><br/>
                               {displayDealsList}
                           </div>

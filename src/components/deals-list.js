@@ -1,46 +1,47 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
-//<li className="list-group-item">
-//{<a href = '/dealdetails/'+dealResult.id>{dealResult.name}+</a>}
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
-const DealItem = (props) => {
-      const dealResult = props.dealResult;
-      //console.log("DealResult is "+JSON.stringify(dealResult))
-      const dealLink = "/dealdetails/"+ props.dealResult.id
-      return (
-
-                <div>
-                      <Link to={dealLink}> {dealResult.id+".  "} {dealResult.name} </Link>
-                      <br/>
-                </div>
-
-      )
-
-}
 
 
 //component get props
 const DealsList = (props) => {
   //create list of displayable dealactions
   const displayDeals = props.dealsResults.map(  (dealResult) => {
+
+        const dealLink = "/dealdetails/"+ dealResult.id
         return (
-            <DealItem
-                dealResult = {dealResult}
-                key = {dealResult.id}
-            />
+
+                <div  key = {dealResult.id}>
+                  <ListItem button component="a" href={dealLink}  className="listButton">
+                    <ListItemText primary={"> "+dealResult.name}  />
+                  </ListItem>
+                  <Divider />
+                </div>
+
+
         )
   });
 
 
 
+
+
 return (
-        <div>
-          <ul>
-              {displayDeals}
-          </ul>
+        <div className="list-style">
+        <center><b>DEALS</b></center>
+                <List component="nav">
+                        {displayDeals}
+                </List>
+
         </div>
 
       )
 }
+
 
 export default DealsList;

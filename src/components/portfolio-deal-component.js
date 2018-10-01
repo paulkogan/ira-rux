@@ -122,7 +122,7 @@ render() {
                       <TableRow className="short-row">
                         <TableCell colSpan="6" className="component-title">
 
-                                      Investment : {deal.investment_name}
+                                      Investment {this.props.index} : {deal.investment_name}
 
                           </TableCell>
                         </TableRow>

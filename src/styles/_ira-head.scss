@@ -18,14 +18,31 @@ button:focus {
 
 
 
+.component-title {
+      font-size: 18px !important;
+      color: black !important;
+      padding: 0;
+      text-align: center !important;
+      font-weight: 700 !important;
+      background:  #81a1ca;
+      height: 24px !important;
+      border: 2px solid black !important;
+}
+
+  //    background: #004d99;
+
+
 .header {
-  background: #172226;
-  color: white;
+  background: 'lightsteelblue';
+  color: black;
   margin-bottom: 0px;
   padding: 0px 0px;
   margin-left: 0px;
 
 }
+
+//  background: #172226;
+
 
 .center_container {
   max-width: 900px;
@@ -39,6 +56,32 @@ button:focus {
       //font-weight: bold;
       //color: blue;
 }
+
+
+.list-style{
+      margin-left: 100px;
+      margin-right: 150px;
+      //font-weight: bold;
+      //color: blue;
+}
+
+
+
+.listButton {
+      background: lightsteelblue;
+
+}
+
+/* mouse over link */
+.listButton:hover {
+    background: lightsteelblue !important;
+}
+
+.listButton:focus {
+  outline:0;
+}
+
+
 
 
 .is-active{
@@ -179,14 +222,4 @@ a:active {
 
 .short-row  {
     height: 32px !important;
-}
-
-
-.component-title {
-      font-size: 18px !important;
-      color: white !important;
-      padding: 0;
-      text-align: center !important;
-      background: #004d99;
-      height: 24px !important;
 }
