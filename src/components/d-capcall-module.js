@@ -15,7 +15,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import { withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-
+import TransListShortComp from './t-list-short-comp'
 import TransListComponent from './t-list-component'
 import {formatCurrency, getStripedStyle} from './ira-utils'
 //import 'typeface-roboto'
@@ -98,38 +98,6 @@ render() {
   const totalRaised = this.props.capCall[3]
   const ccTransArray = this.props.capCall[1]
 
-
-  // return (
-  //   <div>
-  //         <div className = "div-border-thin">
-  //                 Capital Call : <font color= "white">{cc_name} </font><br/>
-  //                 Deal: {dealName} <br/>
-  //                 target_amount:  {formatCurrency(target_amount)} <br/>
-  //                 target_per_investor: {formatCurrency(target_per_investor)} <br/>
-  //                 Raised to-date: {formatCurrency(totalRaised)} <br/>
-  //             </div>
-  //                 <div>
-  //
-  //                 </div>
-  //
-  //         <br/>
-  //   </div>
-  //
-  // )
-  //                            <TableCell colSpan="6" style={{fontSize: 24, color: 'black', padding: 0, textAlign: 'center'}}>
-
-
-  // <AppBar position="static">
-  //     <Toolbar>
-  //                 <Typography variant="title" color="inherit">
-  //                               Capital Call : {cc_name}
-  //                 </Typography>
-  //     </Toolbar>
-  // </AppBar>
-
-
-
-//className="short-row"
 
   return (
     <div>

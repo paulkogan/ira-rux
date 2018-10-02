@@ -15,7 +15,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import { withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-
+import TransListShortComp from './t-list-short-comp'
 import TransListComponent from './t-list-component'
 import {formatCurrency, getStripedStyle} from './ira-utils'
 //import 'typeface-roboto'
@@ -134,8 +134,8 @@ render() {
 
                             <TableRow >
                                       <TableCell colSpan = '6' >
-                                                 Transactions:
-                                                 <TransListComponent transactions = {deal.transactionsForDeal}/>
+                                                <b>Transactions:</b>
+                                                 <TransListShortComp transactions = {deal.transactionsForDeal}/>
 
                                       </TableCell>
                             </TableRow>
@@ -161,23 +161,12 @@ render() {
                             </TableRow>
 
 
-
-                          <TableRow className={classes.shortRow}>
-                            <TableCell > &nbsp; </TableCell>
-                               <TableCell className={classes.cellOne} > </TableCell>
-                               <TableCell className={classes.cellOne} > </TableCell>
-                               <TableCell className={classes.cellOne}>Investors Total Investment: </TableCell>
-                               <TableCell className={classes.cellTwo} >{formatCurrency(deal.totalInvestments_noRollover)}  </TableCell>
-                               <TableCell > &nbsp; </TableCell>
-                           </TableRow>
-
-
                            <TableRow className={classes.shortRow}>
                             <TableCell > &nbsp; </TableCell>
                             <TableCell className={classes.cellOne}></TableCell>
                             <TableCell className={classes.cellOne}></TableCell>
                              <TableCell className={classes.cellOne}>Deal Total Assets: </TableCell>
-                             <TableCell className={classes.cellTwo} >{formatCurrency(deal.expandDeal.total_assets)}</TableCell>
+                             <TableCell className={classes.cellOne} >{formatCurrency(deal.expandDeal.total_assets)}</TableCell>
                              <TableCell > &nbsp; </TableCell>
                            </TableRow>
 
@@ -187,7 +176,7 @@ render() {
                             <TableCell className={classes.cellOne}></TableCell>
                             <TableCell className={classes.cellOne}></TableCell>
                              <TableCell className={classes.cellOne}>In-Place Debt: </TableCell>
-                             <TableCell className={classes.cellTwo} >{formatCurrency(deal.expandDeal.total_debt*-1)}</TableCell>
+                             <TableCell className={classes.cellOne} >{formatCurrency(deal.expandDeal.total_debt*-1)}</TableCell>
                              <TableCell > &nbsp; </TableCell>
                            </TableRow>
 
@@ -204,19 +193,30 @@ render() {
                             </TableRow>
 
 
+
+                            <TableRow className={classes.shortRow}>
+                              <TableCell > &nbsp; </TableCell>
+                                 <TableCell className={classes.cellOne} > </TableCell>
+                                 <TableCell className={classes.cellOne} > </TableCell>
+                                 <TableCell className={classes.cellOne}>Investor&apos;s Total Investment: </TableCell>
+                                 <TableCell className={classes.cellOne} >{formatCurrency(deal.totalInvestments_noRollover)}  </TableCell>
+                                 <TableCell > &nbsp; </TableCell>
+                             </TableRow>
+
+
                             <TableRow className={classes.shortRow}>
                               <TableCell > &nbsp; </TableCell>
                               <TableCell className={classes.cellOne}></TableCell>
                               <TableCell className={classes.cellOne}></TableCell>
-                              <TableCell className={classes.cellOne}>Investors Deal Interest: </TableCell>
-                              <TableCell className={classes.cellTwo} >{deal.capital_pct}%</TableCell>
+                              <TableCell className={classes.cellOne}>Investor&apos;s Deal Interest: </TableCell>
+                              <TableCell className={classes.cellOne} >{deal.capital_pct}%</TableCell>
                               <TableCell > &nbsp; </TableCell>
                             </TableRow>
 
                             <TableRow className={classes.shortRow}>
                                      <TableCell > &nbsp; </TableCell>
                                      <TableCell className={classes.cellOne}></TableCell>
-                                      <TableCell colSpan="2" className={classes.cellOne}>Investors Potential Unrealized Deal Equity: </TableCell>
+                                      <TableCell colSpan="2" className={classes.cellOne}>Investor&apos;s Deal Equity: </TableCell>
                                       <TableCell className={classes.cellTotal} >{formatCurrency(deal.investor_equity_value)}</TableCell>
                                       <TableCell > &nbsp; </TableCell>
                             </TableRow>

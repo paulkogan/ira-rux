@@ -20,13 +20,16 @@ import Switch from '@material-ui/core/Switch';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import Divider from '@material-ui/core/Divider';
-
-
 import purple from '@material-ui/core/colors/purple';
 
+import Drawer from '@material-ui/core/Drawer';
 
-//import { inspect } from 'util' // or directly
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+
 
 import {get_endpoint, getVersion} from './ira-utils';
 const imageRoot = get_endpoint('image')
@@ -61,22 +64,10 @@ const styles = {
     width: '100%'
   },
 
-  menuList: {
-    flexGrow: 1,
-    fontSize: 12,
-    fontWeight: 100,
-    color: 'red',
-    marginBottom:0,
-    textDecoration: 'none',
-    height: '100%'
 
-  },
-
-  menuListItem: {
+  menuButton: {
     marginLeft: -12,
-    marginRight: 10,
-    backgroundColor: '#99a6b2',
-    width: '100%'
+    marginRight: 20,
   },
 };
 
@@ -138,6 +129,27 @@ class TopAppBar extends React.Component {
   render() {
     const { classes } = this.props;
     const { auth, anchorEl, menuOpen } = this.state;
+
+    const drawerList = (
+      <div className="list-style">
+            <List>
+                  <div  key = {Math.random(10000)}>
+
+                    <ListItem button component="a" href={'/transactions'}  className="listButton">
+                      <ListItemText primary={"> Transactions"}  />
+                    </ListItem>
+
+                    <Divider />
+
+                    <ListItem button component="a" href={'/deals'}  className="listButton">
+                      <ListItemText primary={"> Deals"}  />
+                    </ListItem>
+
+                  </div>
+            </List>
+      </div>
+    );
+
   //  const open = Boolean(anchorEl);
  //        <AppBar position="static" style={{backgroundColor: '#ff0000'}} >
 
@@ -154,30 +166,35 @@ class TopAppBar extends React.Component {
             anchorEl={anchorEl}
             open={menuOpen}
             onClose={this.handleClose}
-            className={classes.menuList}
+
             anchorOrigin={{
               vertical: 'top',
-              horizontal: 'right',
+              horizontal: 'left',
             }}
             transformOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
+              vertical: 'top',
+              horizontal: 'center',
             }}
 
           >
 
-
-              <MenuItem className={classes.menuListItem} onClick={ () =>  this.handleItemClick("") } >&gt; Home</MenuItem>
-              <Divider />
-              <MenuItem className={classes.menuListItem} onClick={ () =>  this.handleItemClick("investors") } >&gt; Investors</MenuItem>
-              <Divider />
-              <MenuItem className={classes.menuListItem} onClick={ () =>  this.handleItemClick("deals") } >&gt; Deals</MenuItem>
-              <Divider />
-              <MenuItem  className={classes.menuListItem} onClick={ () =>  this.handleItemClick("transactions") } > &gt; Transactions</MenuItem>
-              <Divider />
-              <MenuItem className={classes.menuListItem} onClick={ () =>  this.handleItemClick("newtrans") } >&gt; Add Transaction</MenuItem>
-              <Divider />
+              <MenuItem onClick={ () =>  this.handleItemClick("transactions") } >Transactions</MenuItem>
+              <MenuItem onClick={ () =>  this.handleItemClick("deals") } >Deals</MenuItem>
+              <MenuItem onClick={ () =>  this.handleItemClick("investors") } >Investors</MenuItem>
+              <MenuItem onClick={ () =>  this.handleItemClick("newtrans") } >Add Transaction</MenuItem>
           </Menu>
+
+
+
+
+
+          <Drawer open={this.state.menuOpen} >
+             <div>
+                {drawerList}
+             </div>
+           </Drawer>
+
+
 
 
 
@@ -239,6 +256,17 @@ TopAppBar.propTypes = {
 
 
 export default withRouter(withStyles(styles)(TopAppBar));
+
+//onClose={this.handleClose()}
+
+
+// <div
+//   tabIndex={0}
+//   role="button"
+//   onClick={this.handleClose()}
+//   onKeyDown={this.handleClose()}
+// >
+
 
 // <Typography variant="title" color="inherit" className={classes.headline}>
 //       &nbsp;&nbsp;&nbsp;IRA rUX

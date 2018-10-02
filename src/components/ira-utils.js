@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.11 +Portfolio Summary, Lists and AppBar "
+          return "3.12 +Short Transactions +Menu"
 
 }
 

@@ -20,6 +20,7 @@ import Typography from '@material-ui/core/Typography';
 import {formatCurrency, getStripedStyle} from './ira-utils'
 import OwnershipRowEx from './ownership-row-expand'
 import TransListComponent from './t-list-component'
+import TransListShortComp from './t-list-short-comp'
 
 //import 'typeface-roboto'
 

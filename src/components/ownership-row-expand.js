@@ -29,6 +29,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 
 import {formatCurrency, getStripedStyle} from './ira-utils'
 import TransListComponent from './t-list-component'
+import TransListShortComp from './t-list-short-comp'
 //import 'typeface-roboto'
 
 
@@ -146,7 +147,7 @@ return (
                     </ExpansionPanelSummary>
 
                     <ExpansionPanelDetails  className={classes.panel}>
-                              <TransListComponent transactions = {ownRow.transactions}/>
+                              <TransListShortComp transactions = {ownRow.transactions}/>
                     </ExpansionPanelDetails>
 
               </ExpansionPanel>

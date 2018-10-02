@@ -44,7 +44,7 @@ const styles = {
           cellOne: {
             border: '0px solid blue',
             textAlign: 'left',
-            padding: '0px 2px',
+            padding: '0px 5px',
             textAlign: 'center'
         	},
 
@@ -63,7 +63,7 @@ const styles = {
 
 
 
-class TransListComponent extends Component {
+class TransListShortComp extends Component {
 
       constructor (props) {
           super(props)
@@ -82,13 +82,10 @@ render() {
 
             <Table className={classes.table}>
                     <colgroup>
-                        <col width="3%" />
+                        <col width="5%" />
                         <col width="15%" />
                         <col width="15%" />
-                        <col width="10%" />
-                        <col width="15%" />
-                        <col width="10%" />
-                        <col width="10%" />
+                        <col width="50%" />
                         <col width="15%" />
                     </colgroup>
 
@@ -98,13 +95,10 @@ render() {
 
                         <TableRow className={classes.shortRow}>
                                   <TableCell className={classes.cellTwo}>ID</TableCell>
-                                  <TableCell className={classes.cellTwo}>Investor</TableCell>
-                                  <TableCell className={classes.cellTwo}>Investment</TableCell>
-                                  <TableCell className={classes.cellTwo}>Passthru</TableCell>
                                   <TableCell className={classes.cellTwo}>Trans. Type</TableCell>
                                   <TableCell className={classes.cellTwo}>Date</TableCell>
-                                  <TableCell className={classes.cellTwo}>Amt.</TableCell>
                                   <TableCell className={classes.cellTwo}>Notes</TableCell>
+                                  <TableCell className={classes.cellTwo}>Amt.</TableCell>
                         </TableRow>
                       </TableHead>
 
@@ -114,16 +108,13 @@ render() {
                        {this.props.transactions.map((trans,index) => {
                          return (
                                  <TableRow key={index} style={{...getStripedStyle(index)}}>
-                                         <TableCell className={classes.cellOne}>&nbsp;{trans.id}</TableCell>
-                                         <TableCell className={classes.cellOne}>{trans.investor_name.slice(0,20)}</TableCell>
-                                         <TableCell className={classes.cellOne}>{trans.investment_name ? trans.investment_name.slice(0,15) : " "} </TableCell>
-                                         <TableCell className={classes.cellOne}>{trans.passthru_name ? trans.passthru_name.slice(0,12) : " "} </TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.id}</TableCell>
                                          <TableCell className={classes.cellOne}>{trans.tt_name} </TableCell>
                                          <TableCell className={classes.cellOne}>{trans.t_wired_date} </TableCell>
+                                         <TableCell className={classes.cellOne}>{trans.t_notes ? trans.t_notes : " "}</TableCell>
                                          <TableCell className={classes.cellOne}>
                                                       {(trans.tt_id===5) ? trans.t_own_adj+"%" : formatCurrency(trans.t_amount)}
                                          </TableCell>
-                                         <TableCell className={classes.cellOne}>{trans.t_notes ? trans.t_notes.slice(0,15) : " "}</TableCell>
                                  </TableRow>
                                );
                             })}
@@ -135,7 +126,7 @@ render() {
 
 } //component
 
-TransListComponent.propTypes = {
+TransListShortComp.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
@@ -143,7 +134,7 @@ TransListComponent.propTypes = {
 
 
 
-export default withStyles(styles)(TransListComponent)
+export default withStyles(styles)(TransListShortComp)
 
 
 // <TableRow>
