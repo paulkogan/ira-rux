@@ -1,7 +1,6 @@
 import React, {} from "react";
 //import ReactDOM, {} from "react-dom";
 import {BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
-import Header, {} from "./header"
 import HomePage, {} from "./home-page.js"
 import TransSearchPage, {} from "./trans-search-page"
 import DealsListPage, {} from "./deals-list-page"
@@ -25,7 +24,7 @@ const notFoundPage = () => {
 const AppRouter = () => (
   <BrowserRouter>
     <div>
-          <Header />
+          <TopAppBar />
           <div className="center_container">
           <br/>
           <Switch>

@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.12 +Short Transactions +Menu"
+          return "3.14 +Improved New Transcation"
 
 }
 
@@ -34,7 +34,7 @@ export function formatCurrency (amount) {
 export function get_endpoint(type) {
           //let current_ENV = process.env.NODE_ENV;
 
-        let current_ENV = 'production';
+        let current_ENV = 'dev';
       //let current_ENV = 'development';
 
       if (type == 'API') {
