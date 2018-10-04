@@ -136,7 +136,7 @@ return (
                                             <TableRow >
 
                                                   <TableCell className={classes.cellOne}>{ownRow.investor_name}</TableCell>
-                                                  <TableCell className={classes.cellOne} >{ownRow.investment_name}</TableCell>
+                                                  <TableCell className={classes.cellOne} >{ownRow.investment_name.slice(0,18)}</TableCell>
                                                   <TableCell className={classes.cellOne}>{ownRow.wired_date}</TableCell>
                                                   <TableCell className={classes.cellOne}>{formatCurrency(ownRow.amount)}</TableCell>
                                                   <TableCell className={classes.cellOne}>{ownRow.capital_pct.toFixed(2)+"%"}</TableCell>

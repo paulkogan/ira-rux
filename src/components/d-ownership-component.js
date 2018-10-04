@@ -169,6 +169,9 @@ render() {
                               <TableCell className={classes.cellTwo} >{formatCurrency(this.props.ownTotals.totalCapital)}</TableCell>
                               <TableCell>{this.props.ownTotals.totalCapitalPct}%</TableCell>
                             </TableRow>
+
+
+                            
                       </TableBody>
                     </Table>
 

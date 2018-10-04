@@ -114,7 +114,7 @@ class TopAppBar extends React.Component {
   handleItemClick = event => {
       //this.setState({ anchorEl: event.currentTarget });
       this.setState({ menuOpen: false });
-      console.log("Event is "+event);
+      console.log("Menu click Event is "+event);
       this.props.history.push('/'+event)
 
 

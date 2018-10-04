@@ -64,7 +64,7 @@ const styles = {
 
           cellFour: {
             padding: '0px 5px 0px 0px',
-            textAlign: 'right',
+            textAlign: 'left',
             fontWeight: 600,
             color: 'black',
             fontSize: 20
@@ -136,9 +136,7 @@ render() {
 
                               <TableRow >
                                 <TableCell className={classes.cellOne}>Property:</TableCell>
-                                <TableCell colSpan="2"  className={classes.cellFour} > {name} </TableCell>
-                                <TableCell > &nbsp; </TableCell>
-                                <TableCell > &nbsp; </TableCell>
+                                <TableCell colSpan="4"  className={classes.cellFour} > {name} </TableCell>
                                 <TableCell > &nbsp; </TableCell>
                               </TableRow>
 

@@ -5,9 +5,22 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.14 +Improved New Transcation"
+          return "3.15 +New Transcation + CapCall Transaction"
 
 }
+
+
+export function getTodaysDate() {
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1; //January is 0!
+          var yyyy = today.getFullYear();
+          if (dd<10){  dd='0'+dd }
+          if(mm<10){   mm='0'+mm }
+          let todaysDate = yyyy+'-'+mm+'-'+dd;
+          return todaysDate
+}
+
 
 
 export function getStripedStyle(index) {
