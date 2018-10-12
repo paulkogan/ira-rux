@@ -28,7 +28,7 @@ import purple from '@material-ui/core/colors/purple';
 
 //import { inspect } from 'util' // or directly
 
-import {get_endpoint, getVersion} from './ira-utils';
+import {get_endpoint, getVersion, getReactVersion} from './ira-utils';
 const imageRoot = get_endpoint('image')
 
 
@@ -205,7 +205,7 @@ class TopAppBar extends React.Component {
                           &nbsp;IRA Investor Reporting
                      </Typography>
                      <div className={classes.subHeadline}>
-                               &nbsp;&nbsp;{getVersion()}
+                               &nbsp;&nbsp;{getVersion() + " rv: "+getReactVersion()}
                      </div>
               </div>
 

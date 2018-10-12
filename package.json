@@ -10,7 +10,7 @@
     "dev-server": "webpack-dev-server",
     "start": "run-p webpack dev-server",
     "start-dev": "NODE_ENV=development run-p dev-server",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "live-server": "^1.2.0",
     "material-ui": "^0.20.2",
     "moment": "^2.22.2",
@@ -35,6 +37,7 @@
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "recompose": "^0.30.0",
     "redux": "^4.0.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",

@@ -5,9 +5,50 @@ import React, {Component} from 'react';
 
 export function getVersion() {
 
-          return "3.15 +New Transcation + CapCall Transaction"
+          return "3.17 +Jest NTF Tests"
 
 }
+
+
+export function getReactVersion() {
+
+          return React.version;
+
+}
+
+
+
+
+
+export function get_endpoint(type) {
+          //let current_ENV = process.env.NODE_ENV;
+
+        let current_ENV = 'production';
+      //let current_ENV = 'development';
+
+      if (type == 'API') {
+
+                  if (current_ENV  === 'production')  {
+                           return "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
+                  } else {
+                           return "http://localhost:8081"
+                  }
+      }
+
+      if (type == 'image') {
+
+                  if (current_ENV  === 'production')  {
+                           return "http://ira-rux-03.s3-website.us-east-2.amazonaws.com"
+                  } else {
+                           return "http://localhost:8080"
+                  }
+      }
+
+
+
+
+} //function
+
 
 
 export function getTodaysDate() {
@@ -41,34 +82,4 @@ export function formatCurrency (amount) {
             } else {
                return "($"+(-1*amount).toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")+")";
             }
-} //function
-
-
-export function get_endpoint(type) {
-          //let current_ENV = process.env.NODE_ENV;
-
-        let current_ENV = 'dev';
-      //let current_ENV = 'development';
-
-      if (type == 'API') {
-
-                  if (current_ENV  === 'production')  {
-                           return "http://ira-env.c7z5am6byq.us-east-2.elasticbeanstalk.com"
-                  } else {
-                           return "http://localhost:8081"
-                  }
-      }
-
-      if (type == 'image') {
-
-                  if (current_ENV  === 'production')  {
-                           return "http://ira-rux-03.s3-website.us-east-2.amazonaws.com"
-                  } else {
-                           return "http://localhost:8080"
-                  }
-      }
-
-
-
-
 } //function

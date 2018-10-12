@@ -8,6 +8,7 @@ import InvestorsListPage, {} from "./investors-list-page"
 import DealDetailsPage, {} from "./deal-details-page"
 import PortfolioPage, {} from "./portfolio-page"
 import NewTransactionForm, {} from "./new-transaction-form"
+import NTFtest, {} from "./NTF-test"
 import TopAppBar, {} from "./appBar-top"
 
 const notFoundPage = () => {
@@ -38,6 +39,7 @@ const AppRouter = () => (
               <Route path = "/portfolio/:id" component = {PortfolioPage} />
               <Route path = "/newtrans" component = {NewTransactionForm} />
               <Route path = "/appbar" component = {TopAppBar} />
+              <Route path = "/ntftest" component = {NTFtest} />
               <Route component = {notFoundPage} />
           </Switch>
           </div>

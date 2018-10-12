@@ -345,7 +345,8 @@ const { classes } = this.props;
                                     />
                             </TableCell>
                             <TableCell  className={classes.cellOne}> </TableCell>
-
+                            <TableCell  className={classes.cellOne}> </TableCell>
+                            <TableCell  className={classes.cellOne}> </TableCell>
 
                 </TableRow>
 

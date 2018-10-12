@@ -134,8 +134,11 @@ constructor(props) {
     };
 
     this.onSubmit = this.handleFormSubmit.bind(this);
-    this.onChange = this.handleChange.bind(this);
+    this.onChange = this.onChange.bind(this);
+
+
 } //constructor
+
 
 
 
@@ -180,7 +183,7 @@ constructor(props) {
 
 
 //set state for any number of input field changes
-handleChange(event) {
+onChange = (event) => {
           //const target = event.target;
           //const value = target.type === 'checkbox' ? target.checked : target.value;
           const value = event.target.value;
@@ -190,6 +193,7 @@ handleChange(event) {
             [name]: value
           });
           console.log("just set "+name+"  to  "+value)
+          //this.props.onChange();
 
 }
 
@@ -263,14 +267,20 @@ const { classes } = this.props;
                                         Transaction Type:
                                 </TableCell>
                                 <TableCell  className={classes.cellOneLeft}>
+                                  <div className="ttype-select">
                                         <EntitiesPulldown
                                                 itemList = {this.state.ttypes_4_picklist}
                                                 selectedItem = {this.state.selectedTType}
                                                 handleChangeCB = {this.onChange}
                                                 target = {"selectedTType"}
                                         />
+                                  </div>
                                 </TableCell>
-                                <TableCell  className={classes.cellOneLeft}>({this.state.selectedTType})</TableCell>
+                                <TableCell  className={classes.cellOneLeft}>
+                                        <div className="ttype-code">
+                                        ({this.state.selectedTType})
+                                        </div>
+                                </TableCell>
                                 <TableCell  className={classes.cellOne}> </TableCell>
                                 <TableCell  className={classes.cellOne}> </TableCell>
                     </TableRow>
@@ -343,7 +353,7 @@ const { classes } = this.props;
               { (this.state.selectedTType == 8) && (
 
 
-
+                  //should not be passing any investors, do fetch there
                   <NewCapCallTrans  investors={this.state.investors_4_picklist} />
 
 
@@ -539,7 +549,12 @@ NewTransactionForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
+//NewTransactionForm.defaultProps = { onChange: () => {} };
 export default withStyles(styles)(NewTransactionForm);
+
+
+//export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));
+
 
 
 // <label>
